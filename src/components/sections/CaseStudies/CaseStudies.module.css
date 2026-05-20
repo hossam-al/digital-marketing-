@@ -172,7 +172,12 @@
     rgba(41, 95, 153, 0.45) 50%, /* إدخال اللون الأزرق المطور */
     transparent 80%
   );
-     
+ -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); /* 👈 أضف هذا السطر هنا */
+  
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
 
 /* توهج أزرق ناعم ومريح للعين عند الـ Hover فوق الكارت لمنع التشتيت البصري */
 .card:hover {
@@ -364,7 +369,7 @@
   background: oklch(1 0 0 / 0.09);
   transform: translateY(-2px);
   border-color: var(--secondaryHover) !important;
-  box-shadow:0 15px 35px rgba(43, 110, 194, 0.4);
+  box-shadow: 0 4px 14px rgba(41, 95, 153, 0.3);
 }
 
 .metricValue {
@@ -431,6 +436,4 @@
 @media (max-width: 480px) {
   .companyName { font-size: 20px; }
   .metricValue { font-size: 17px; }
-
-}
 }

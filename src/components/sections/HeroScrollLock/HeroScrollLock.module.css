@@ -55,7 +55,6 @@
   filter: blur(80px);
   animation: float 6s ease-in-out infinite;
 }
-/* HeroScrollLock.module.css */
 
 .shapeRight {
   position: absolute;
@@ -156,7 +155,6 @@
   font-family: var(--font-display);
   white-space: pre-line;
   font-size: 4.5rem;
-
   font-weight: 800;
   color: var(--foreground) !important; /* اللون الفاتح الصريح */
   letter-spacing: -0.02em;
@@ -205,8 +203,6 @@
   width: 1.1rem;
 }
 
-/* HeroScrollLock.module.css أو Navbar.module.css */
-
 .ctaSecondary {
   display: inline-flex;
   align-items: center;
@@ -226,12 +222,9 @@
 
 /* التوظيف الممتاز للون الأزرق عند الـ Hover */
 .ctaSecondary:hover {
-background: linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%);
-  
+  background: linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%);
   /* إضافة توهج خلفي ناعم بنفس الدرجة ليعطي إيحاء بأن العنصر يضيء */
   box-shadow: 0 15px 35px rgba(43, 110, 194, 0.4);
-  
-  /* حركة رفرفة خفيفة للأعلى ممتصة للصدمات (اختياري) */
 }
 
 /* ضبط محاذاة الأزرار في شاشات الموبايل */
@@ -293,7 +286,6 @@ background: linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%);
 .pageBtn:hover .pageLineInactive {
   opacity: 0.5;
   width: 2rem;
-  
 }
 
 /* سهم المتابعة (Scroll Hint) */
@@ -323,25 +315,91 @@ background: linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%);
   opacity: 0.5;
 }
 
-/* الشاشات الصغيرة الاستجابة (Responsive) */
+/* ==========================================================================
+   تعديل كود الرسبونسف فقط - حل مشكلة انحراف السلايد الأول عن المنتصف
+   ========================================================================== */
 @media (max-width: 768px) {
-  .heading { font-size: 3rem; }
-  .content { padding-left: 1.5rem; padding-right: 1.5rem; }
+  /* توسيط المحتوى عمودياً وأفقياً ورفعه للأعلى لتوفير مساحة للـ Mascot السفلي */
+  .content { 
+    padding-left: 1.5rem; 
+    padding-right: 1.5rem;
+    align-items: center !important;
+    justify-content: flex-start;
+    padding-top: 6.5rem; /* مسافة أمان ممتازة أسفل الهيدر */
+  }
   
+  .slideInner { 
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* توسيط الإيبراو والأزرار */
+    text-align: center; /* توسيط النصوص تماماً */
+  }
+
   .contentRight {
     align-items: center !important;
   }
+
   .contentRight .slideInner {
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     align-items: center;
   }
-  .mascot {
-    width: 45vw;
-    bottom: 5%;
+
+  /* معالجة حجم الخط وإلغاء فواصل الأسطر لتلتف الكلمات داخل شاشات الجوال */
+  .heading { 
+    font-size: 2.3rem; 
+    white-space: normal;
+    line-height: 1.2;
   }
-  .mascotLeft {
+
+  .desc {
+    font-size: 0.95rem;
+    margin-top: 0.75rem;
+    max-width: 100%;
+  }
+
+  /* تنسيق وضبط محاذاة الأزرار بالتساوي في منتصف الشاشة للموبايل */
+  .ctaRow {
+    margin-top: 1.5rem;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .ctaPrimary, .ctaSecondary {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  /* --- التوسيط المطلق والموحد للـ Mascot في السلايد الأول والثاني --- */
+  .mascot {
+    width: 75vw; /* حجم مثالي صريح وواضح للرؤية */
+    max-width: 320px;
+    
+    /* إلغاء قيم المحاذاة لليمين لمنع انحراف السلايد الأول */
+    right: auto !important; 
+    
+    /* توحيد المحاذاة من اليسار بنسبة 50% والسحب للخلف بنصف القيمة للسنترة الكاملة */
     left: 50% !important;
-    transform: translateX(-50%);
-    opacity: 0.25; /* لكي لا يحجب الرؤية عن النص بالموبايل */
+    bottom: 2% !important;
+    transform: translateX(-50%) !important; 
+    
+    opacity: 1;
+    z-index: 4;
+  }
+
+  /* تطبيق نفس القواعد الصارمة على السلايد الثاني لمنع التضارب */
+  .mascotLeft {
+    right: auto !important;
+    left: 50% !important;   
+    bottom: 2% !important;
+    transform: translateX(-50%) !important;
+    opacity: 1 !important;
+  }
+
+  /* إخفاء نقاط الـ Pagination الجانبية لمنع الازدحام على الجوال */
+  .pagination {
+    display: none;
   }
 }

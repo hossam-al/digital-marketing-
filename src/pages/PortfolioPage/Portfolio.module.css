@@ -1,0 +1,27 @@
+.heroSection {
+  padding-top: 10rem;
+  padding-bottom: 3rem;
+  /* الخلفية الداكنة المتدرجة الفخمة للموقع */
+  background: linear-gradient(180deg, #121212 0%, #080808 100%);
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .heroSection {
+    padding-top: 12rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: #f59e0b; /* اللون الذهبي الخاص بالهوية */
+  font-weight: 600;
+}
+
+.fontDisplay {
+  font-family: var(--font-display, "Playfair Display", serif);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}

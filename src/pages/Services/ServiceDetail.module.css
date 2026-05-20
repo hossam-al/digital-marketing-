@@ -1,0 +1,74 @@
+.heroSection {
+  padding-top: 10rem;
+  padding-bottom: 4rem;
+  background: linear-gradient(180deg, #121212 0%, #080808 100%);
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .heroSection {
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.contentSection {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: #080808;
+}
+
+.backLink {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: #6c757d;
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: #f59e0b;
+}
+
+.fontDisplay {
+  font-family: var(--font-display, serif);
+  line-height: 1.05;
+}
+
+.checkCircle {
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  margin-top: 2px;
+}
+
+.engagementCard {
+  border-radius: 1rem;
+  border: 1px solid #222225;
+  background-color: #121214;
+  color: #ffffff;
+}
+
+.cardEyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: #f59e0b;
+}
+
+.btnGold {
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #000000 !important;
+  border: 0;
+  transition: opacity 0.2s ease;
+}
+
+.btnGold:hover {
+  opacity: 0.9;
+}
+
+:global(.min-vh-screen) {
+  min-height: 100vh;
+}

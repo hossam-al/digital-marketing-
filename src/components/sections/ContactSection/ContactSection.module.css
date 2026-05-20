@@ -1,0 +1,62 @@
+.contactSection {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background: var(--background);
+}
+
+.label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: #6c757d; /* text-muted-foreground */
+}
+
+.inputControl {
+  background-color: #121214 !important; /* bg-surface */
+  border: 1px solid #222225 !important; /* border-border */
+  color: #ffffff !important;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.inputControl:focus {
+  border-color: #f59e0b !important; /* focus:border-primary */
+  box-shadow: none !important;
+}
+
+.btnGold {
+  padding: 0.85rem 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  box-shadow: 0 5px 15px rgba(245, 158, 11, 0.15);
+  transition: transform 0.2s ease-in-out;
+}
+
+.btnGold:hover {
+  transform: scale(1.02);
+}
+
+.iconColor {
+  color: #f59e0b;
+}
+
+.infoLink {
+  color: #ffffff;
+  opacity: 0.9;
+  transition: color 0.2s ease;
+}
+
+.infoLink:hover {
+  color: #f59e0b;
+}
+
+.mapWrapper {
+  border-color: #222225 !important;
+}
+
+.mapIframe {
+  border: 0;
+  filter: grayscale(1) invert(0.9) contrast(1.2); /* مظهر خريطة داكن مطابق للثيم الأنيق */
+}
