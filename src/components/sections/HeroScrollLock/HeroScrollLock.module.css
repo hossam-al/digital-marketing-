@@ -1,0 +1,347 @@
+/* HeroScrollLock.module.css */
+
+.section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+/* الخلفيات والطبقات الفوقية */
+.bgWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.bgImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.6; /* تفتيح بسيط لظهور النصوص بقوة */
+}
+
+.bgOverlayGradient {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-overlay);
+  z-index: 2;
+}
+
+.bgOverlayColor {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(18, 20, 22, 0.45);
+  z-index: 2;
+}
+
+/* الأشكال المضيئة الخلفية */
+.shapes {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+.shapeLeft {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  height: 22rem;
+  width: 22rem;
+  border-radius: 50%;
+  background-color: rgba(255, 193, 7, 0.15); /* توهج ذهبي */
+  filter: blur(80px);
+  animation: float 6s ease-in-out infinite;
+}
+/* HeroScrollLock.module.css */
+
+.shapeRight {
+  position: absolute;
+  right: -5%;
+  top: 10%;
+  height: 32rem;
+  width: 32rem;
+  border-radius: 50%;
+  /* خلط لونك الأزرق الجديد بنسبة 15% ليصنع هالة ضوئية خلفية احترافية */
+  background-color: rgba(41, 95, 153, 0.15) !important; 
+  filter: blur(140px);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* تحكم Mascot 1 اليمين (افتراضي) */
+.mascot {
+  pointer-events: none;
+  position: absolute;
+  z-index: 5;
+  right: 4%;
+  bottom: 9%;
+  width: 32vw;
+  max-width: 500px;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.8));
+}
+
+/* تحكم Mascot 2 اليسار (للسلايد الثاني) */
+.mascotLeft {
+  left: 4% !important;   
+  right: auto !important;
+  bottom: 0% !important;
+}
+
+/* منطقة المحتوى والنصوص الكبرى */
+.content {
+  position: relative;
+  z-index: 10;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  height: 100%;
+  max-width: 80rem;
+  flex-direction: column;
+  justify-content: center; /* توسيط عمودي */
+  padding-left: 3rem;
+  padding-right: 3rem;
+  transition: align-items 0.4s ease;
+}
+
+.slideInner {
+  max-width: 48rem;
+  transition: all 0.4s ease;
+}
+
+/* --- نقل المحتوى لليمين في السلايد الثاني --- */
+.contentRight {
+  align-items: flex-end !important;
+}
+
+.contentRight .slideInner {
+  margin-left: auto;
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ليبقى تنسيق أسطر النص متناسق البدايات */
+}
+
+/* تنسيقات العناوين وإلزامها بالمتغيرات لضمان عدم التعتيم */
+.eyebrow {
+  margin-bottom: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--primary) !important;
+}
+
+.eyebrowLine {
+  height: 2px;
+  width: 2rem;
+  background-color: var(--primary);
+}
+
+.heading {
+  font-family: var(--font-display);
+  white-space: pre-line;
+  font-size: 4.5rem;
+
+  font-weight: 800;
+  color: var(--foreground) !important; /* اللون الفاتح الصريح */
+  letter-spacing: -0.02em;
+}
+
+.desc {
+  margin-top: 1.25rem;
+  max-width: 36rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--muted-foreground) !important;
+}
+
+/* مجموعة الأزرار وروابط التوجيه (CTA Buttons Row) */
+.ctaRow {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+/* الزر الأساسي المضيء (Book Consultation) */
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 50px;
+  background: var(--gradient-gold) !important;
+  padding: 0.9rem 2.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-foreground) !important;
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.ctaPrimary:hover {
+  /* توهج ذهبي دافئ ومحترف متناسق مع الخلفية المظلمة */
+  box-shadow: 0 12px 32px rgba(255, 193, 7, 0.4);
+}
+
+.ctaPrimaryIcon {
+  height: 1.1rem;
+  width: 1.1rem;
+}
+
+/* HeroScrollLock.module.css أو Navbar.module.css */
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.9rem 2.25rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  background: linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%) ;
+  border: 1px solid var(--border);
+  color: var(--foreground) !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* التوظيف الممتاز للون الأزرق عند الـ Hover */
+.ctaSecondary:hover {
+background: linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%);
+  
+  /* إضافة توهج خلفي ناعم بنفس الدرجة ليعطي إيحاء بأن العنصر يضيء */
+  box-shadow: 0 15px 35px rgba(43, 110, 194, 0.4);
+  
+  /* حركة رفرفة خفيفة للأعلى ممتصة للصدمات (اختياري) */
+}
+
+/* ضبط محاذاة الأزرار في شاشات الموبايل */
+@media (max-width: 768px) {
+  .contentRight .ctaRow {
+    justify-content: center;
+  }
+}
+
+/* النقاط والصفحات (Pagination) */
+.pagination {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  z-index: 20;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pageBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.pageNumActive {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary) !important;
+}
+
+.pageNumInactive {
+  font-size: 0.8rem;
+  color: var(--foreground) !important;
+  opacity: 0.4;
+}
+
+.pageLineActive {
+  height: 2px;
+  width: 3rem;
+  background-color: var(--primary);
+  transition: width 0.2s;
+}
+
+.pageLineInactive {
+  height: 2px;
+  width: 1.5rem;
+  background-color: var(--foreground);
+  opacity: 0.2;
+  transition: width 0.2s, opacity 0.2s;
+}
+
+.pageBtn:hover .pageLineInactive {
+  opacity: 0.5;
+  width: 2rem;
+  
+}
+
+/* سهم المتابعة (Scroll Hint) */
+.scrollHint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  z-index: 20;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.scrollIcon {
+  margin-left: auto;
+  margin-right: auto;
+  height: 1.5rem;
+  width: 1.5rem;
+  color: var(--primary) !important;
+}
+
+.scrollText {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--foreground) !important;
+  opacity: 0.5;
+}
+
+/* الشاشات الصغيرة الاستجابة (Responsive) */
+@media (max-width: 768px) {
+  .heading { font-size: 3rem; }
+  .content { padding-left: 1.5rem; padding-right: 1.5rem; }
+  
+  .contentRight {
+    align-items: center !important;
+  }
+  .contentRight .slideInner {
+    margin: 0 auto;
+    align-items: center;
+  }
+  .mascot {
+    width: 45vw;
+    bottom: 5%;
+  }
+  .mascotLeft {
+    left: 50% !important;
+    transform: translateX(-50%);
+    opacity: 0.25; /* لكي لا يحجب الرؤية عن النص بالموبايل */
+  }
+}

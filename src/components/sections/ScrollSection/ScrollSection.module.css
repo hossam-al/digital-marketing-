@@ -1,0 +1,233 @@
+/* ScrollSection.module.css */
+
+/* ─── Root Container ───────────────────────────────────────── */
+.section {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Individual panel ──────────────────────────────────────── */
+.panel {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+/* ─── Per-slide backgrounds ─────────────────────────────────── */
+.panel1 { background: var(--background); }
+.panel2 { background: var(--background) no-repeat center center / cover; }
+.panel3 { background: var(--surface); }
+.panel4 { background: var(--background) no-repeat center center / cover; }
+.panel5 { background: var(--surface); }
+.panel6 { background: var(--background) no-repeat center center / cover; }
+
+/* subtle gold glow on dark panels */
+.panel1::before,
+.panel3::before,
+.panel5::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, oklch(0.3 0.08 65 / 0.35), transparent 60%);
+  pointer-events: none;
+}
+
+/* dark scrim over bg-image panels so text stays readable */
+.panel2::after,
+.panel4::after,
+.panel6::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: oklch(0.08 0.005 60 / 0.65);
+  pointer-events: none;
+}
+
+/* ─── Inner layout ──────────────────────────────────────────── */
+.inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* ─── Left content ──────────────────────────────────────────── */
+.content {
+  width: 50%;
+  color: var(--foreground);
+  text-align: start;
+}
+
+.serviceNumber {
+  font-size: 64px;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px #295f99; /* تحويل الرقم إلى لون أزرق مطور مع تباين واضح */
+  margin-right: 12px;
+  display: inline-block;
+  line-height: 1;
+  font-family: var(--font-display);
+}
+
+.title {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--foreground);
+  line-height: 1.1;
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+}
+
+.titleAccent {
+  background: var(--secondaryHover);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--muted-foreground);
+  margin-bottom: 18px;
+}
+
+.underline {
+  width: 180px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary) 50%, transparent);
+  margin: 0 0 24px;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+
+/* ─── Features list ─────────────────────────────────────────── */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--foreground);
+}
+
+/* الكلاس المطور باللون الأزرق المضيء #295f99 والتوهج الناعم */
+.checkIcon {
+  color: var(--primary) !important; /* تلوين أيقونة العلامة باللون الأزرق المطور */
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(41, 95, 153, 0.6));
+}
+
+/* ─── Right image ───────────────────────────────────────────── */
+.imageContainer {
+  width: 45%;
+  padding: 5px;
+  border: 1px solid var(--primary);
+  border-radius: 16px;
+  filter: drop-shadow(0 20px 40px oklch(0 0 0 / 0.5));
+  transition: all 0.3s ease;
+ cursor:pointer;
+
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: contain;
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .inner {
+    padding: 0 32px;
+    gap: 24px;
+  }
+  .serviceNumber {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column-reverse;
+    justify-content: center;
+    padding: 60px 24px 32px;
+    gap: 16px;
+  }
+
+  .content {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .serviceNumber {
+    font-size: 40px;
+  }
+
+  .title {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .description {
+    font-size: 14px;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .features {
+    align-items: flex-start;
+  }
+
+  .underline {
+    width: 140px;
+    margin: 0 auto 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: 50px 18px 24px;
+  }
+  .serviceNumber {
+    font-size: 34px;
+  }
+}

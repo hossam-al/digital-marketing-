@@ -1,0 +1,64 @@
+/* قم بوضع هذا الكود في ملف css عالمي مثل global.css أو main.css */
+
+:root {
+  --radius: 0.75rem;
+
+  /* Backgrounds */
+  --background: #0a0607
+;       
+  --foreground: #f8f9fa;           /* لون النصوص الأساسية الفاتحة */
+
+  --surface: #1a1d20;              /* لون الأسطح والطبقات */
+  --surface-elevated: #212529;     /* لون الأسطح المرتفعة */
+
+  --card: #1a1d20;                 /* لون خلفية البطاقات (تطابق الـ surface) */
+  --card-foreground: #f8f9fa;
+
+  --popover: #1a1d20;
+  --popover-foreground: #f8f9fa;
+
+  /* Primary / Accent (الذهبي الرمادي المضيء المأخوذ من صورتك) */
+  --primary: #ffc107;              /* اللون الذهبي/الأصفر الدافئ */
+  --primary-foreground: #121416;   /* لون النص فوق الذهبي (داكن للقراءة) */
+  --primary-glow: #ffe082;         /* توهج ذهبي فاتح */
+
+  --secondary: #2b3035;            /* رمادي داكن لبوتستراب */
+  --secondary-foreground: #f8f9fa;
+
+  --accent: #ffc107;
+  --accent-foreground: #121416;
+
+  /* Muted */
+  --muted: #212529;
+  --muted-foreground: #a6adbb;     /* الرمادي المتوسط للنصوص الفرعية */
+
+  /* Status */
+  --destructive: #dc3545;          /* أحمر صريح ومتناسق مع بوتستراب للأخطاء */
+  --destructive-foreground: #ffffff;
+
+  /* UI (الحدود والشفافيات الصريحة البديلة لـ oklch) */
+  --border: rgba(255, 255, 255, 0.08); /* حدود شفافة خفيفة جداً */
+  --input: rgba(255, 255, 255, 0.12);  /* حقول إدخال متناسقة */
+  --ring: rgba(255, 193, 7, 0.45);     /* حلقة التحديد الذهبية بنسبة شفافية 45% */
+
+--blue-brand: #295f99;
+  
+  /* أو يمكنك استبداله باللون المساعد لبوتستراب وموقعك */
+  --secondaryHover: linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%);
+  --secondary: linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%);
+  --secondary-foreground: #fafafa;
+  
+  /* يمكنك استخدامه أيضاً لعمل هالة مضيئة زرقاء ناعمة في الخلفية (اختياري) */
+  --shadow-blue-glow: 0 0 40px rgba(41, 95, 153, 0.3);
+
+   --gradient-hero:
+    radial-gradient(ellipse at 30% 20%, oklch(0.3 0.08 65 / 0.5), transparent 60%),
+    radial-gradient(ellipse at 70% 80%, oklch(0.25 0.1 50 / 0.45), transparent 60%),
+    linear-gradient(180deg, oklch(0.1 0.005 60) 0%, oklch(0.13 0.008 60) 100%);
+  --gradient-gold: linear-gradient(135deg, oklch(0.78 0.14 70), oklch(0.86 0.16 80));
+  --gradient-overlay: linear-gradient(
+    180deg,
+    oklch(0.08 0.005 60 / 0.4) 0%,
+    oklch(0.1 0.005 60 / 0.85) 100%
+  );
+}

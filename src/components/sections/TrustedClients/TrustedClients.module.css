@@ -1,0 +1,82 @@
+/* TrustedClients.module.css */
+
+.trustedSection {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background-color: #110c09 ; 
+  padding-top: 1.75rem;     
+  padding-bottom: 1.75rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;      
+}
+
+.marqueeWrapper {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  gap: 3.5rem;             
+  align-items: center;
+  animation: infiniteMarquee 28s linear infinite; 
+}
+
+.clientName {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.2rem;        
+  font-weight: 800;         
+  letter-spacing: 0.05em;   
+  color: var(--foreground);
+  opacity: 0.45;            
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: default;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clientName:hover {
+  opacity: 1;
+  color: var(--secondary) !important; 
+  cursor: text;
+
+}
+
+@media (min-width: 1024px) {
+  .clientName {
+    font-size: 1.75rem;     
+  }
+  .marqueeTrack {
+    gap: 5rem;              
+  }
+}
+
+@keyframes infiniteMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.3333%);
+  }
+}

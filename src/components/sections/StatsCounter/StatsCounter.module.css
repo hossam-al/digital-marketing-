@@ -1,0 +1,45 @@
+/* StatsCounter.module.css */
+
+.statsSection {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  width: 100%;
+}
+
+.counterValue {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  line-height: 1;
+}
+
+.counterLabel {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--muted-foreground) !important;
+  margin-bottom: 0;
+}
+
+
+@media (min-width: 768px) {
+  .statsSection {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  
+  .counterValue {
+    font-size: 4.5rem; 
+  }
+}
