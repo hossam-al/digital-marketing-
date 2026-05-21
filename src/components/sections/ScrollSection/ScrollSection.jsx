@@ -1,86 +1,111 @@
 import { useRef } from "react";
-import { CheckCircle2 } from "lucide-react"; // استدعاء الأيقونة الاحترافية والمضيئة
+import { CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom"; // استيراد الـ Link للتنقل بين الصفحات
 import styles from "./ScrollSection.module.css";
 import work1 from "@/assets/SE1.png";
 import work2 from "@/assets/SE2.png";
-import work3 from "@/assets/SE3.png"; 
+import work3 from "@/assets/SE3.png";
 import work4 from "@/assets/SE4.png";
-import work5 from "@/assets/SE5.png"; 
-import work6 from "@/assets/SE6.png"; 
+import work5 from "@/assets/SE5.png";
+import work6 from "@/assets/SE6.png";
 
-// ─── Data ────────────────────────────────────────────────────
+// ─── Data (6 Core Main Panels for Home Page) ──────────────────────────
 const SERVICES = [
   {
     number: "1",
-    title: "Social",
-    accent: "Media",
-    subtitle: "Strategic Content & Engagement",
+    title: "Marketing & Growth",
+    accent: "Strategy",
+    subtitle: "Brand Positioning & Market Analysis",
     description:
-      "Strategic content creation and audience engagement that builds brand authority and drives measurable results across all social platforms.",
-    features: ["Content Strategy & Planning", "Community Management", "Performance Analytics"],
+      "We define the overall marketing direction, analyze market gaps, and craft core messaging matrices to turn your business presence into a measurable acquisition system.",
+    features: [
+      "Market & Competitor Analysis",
+      "Brand Positioning Statements",
+      "Channel Recommendations",
+    ],
     image: work1,
-    imageAlt: "Social Media",
+    imageAlt: "Marketing & Growth Strategy",
     panelClass: styles.panel1,
   },
   {
     number: "2",
-    title: "Paid",
-    accent: "Advertising",
-    subtitle: "High-Performance Ad Campaigns",
+    title: "Content Strategy &",
+    accent: "Creative Direction",
+    subtitle: "Persuasive Copywriting & Storytelling",
     description:
-      "Data-driven advertising campaigns that maximize ROAS through precise targeting, compelling creatives, and continuous optimization.",
-    features: ["Precision Targeting", "Creative Optimization", "ROAS Maximization"],
+      "We turn content from regular posting into a strategic tool serving awareness, trust, and sales through structured content pillars and engaging hooks.",
+    features: [
+      "Content Pillars Definition",
+      "Video & Reels Scripting",
+      "Social Media Copywriting",
+    ],
     image: work2,
-    imageAlt: "Paid Advertising",
+    imageAlt: "Content Strategy & Copywriting",
     panelClass: styles.panel2,
   },
   {
     number: "3",
-    title: "Brand",
-    accent: "Identity",
-    subtitle: "Professional Logo & Visual Systems",
+    title: "Meta Ads & Campaign",
+    accent: "Optimization",
+    subtitle: "Performance Media Buying",
     description:
-      "Complete brand identity development that creates memorable visual systems and establishes strong market positioning.",
-    features: ["Logo Design", "Visual Identity Systems", "Brand Guidelines"],
-    image: work3, 
-    imageAlt: "Brand Identity",
+      "We manage paid advertising as a performance system. Testing creative angles, monitoring core metrics, and optimizing budgets to turn ad spend into clear commercial growth.",
+    features: [
+      "Targeted Lead Generation",
+      "Retargeting & Custom Audiences",
+      "Performance Data Analysis",
+    ],
+    image: work3,
+    imageAlt: "Meta Paid Advertising",
     panelClass: styles.panel3,
   },
   {
     number: "4",
-    title: "Creative",
-    accent: "Content",
-    subtitle: "Eye-Catching Visuals & Creatives",
+    title: "Conversion Paths &",
+    accent: "Customer Journeys",
+    subtitle: "Optimizing Touchpoints & Funnels",
     description:
-      "Compelling visual content and creative assets designed to capture attention, drive engagement, and boost marketing performance.",
-    features: ["Visual Design", "Video Production", "Creative Strategy"],
-    image: work4,
-    imageAlt: "Creative Content",
-    panelClass: styles.panel4,
-  },
-  {
-    number: "5",
-    title: "Web &",
-    accent: "E-Commerce",
-    subtitle: "Modern Websites & Online Stores",
-    description:
-      "High-converting websites and e-commerce platforms built to increase sales, enhance user experience, and drive business growth.",
-    features: ["Website Development", "E-Commerce Solutions", "Conversion Optimization"],
-    image: work6, 
-    imageAlt: "Web & E-Commerce",
+      "We map the exact path customers take from first exposure directly to inquiry, building tailored landing and interaction paths to reduce customer confusion.",
+    features: [
+      "Touchpoint Analysis",
+      "Landing Path Engineering",
+      "Qualification Flow Tuning",
+    ],
+    image: work6,
+    imageAlt: "Customer Journey Mapping",
     panelClass: styles.panel5,
   },
   {
-    number: "6",
-    title: "Clear Reporting &",
-    accent: "Transparent Results",
-    subtitle: "You See Everything",
+    number: "5",
+    title: "WhatsApp & Sales",
+    accent: "Communication",
+    subtitle: "Lead Qualification & Closing Support",
     description:
-      "Weekly and monthly reports showing spend breakdown, ROAS, sales, and performance insights. Full transparency with no hidden numbers.",
-    features: ["Weekly Performance Reports", "ROAS & Sales Tracking", "Transparent Analytics"],
-    image: work5, 
-    imageAlt: "Clear Reporting",
-    panelClass: styles.panel6,
+      "We structure early client chat conversations. Crafting professional welcome setups and objection reply frameworks to help sales teams communicate uniformly and close fast.",
+    features: [
+      "Welcome Flow Automation",
+      "Objection Reply Frameworks",
+      "Unified Team Communication",
+    ],
+    image: work4,
+    imageAlt: "WhatsApp Sales Support",
+    panelClass: styles.panel4,
+  },
+  {
+    number: "6",
+    title: "Web Dev & Interface",
+    accent: "UI/UX",
+    subtitle: "High-Converting Digital Products",
+    description:
+      "We design and engineer speed-optimized, responsive web interfaces and landing pages. Built specifically to handle campaign traffic and convert interest into real opportunities.",
+    features: [
+      "UI/UX Interface Design",
+      "Responsive Web Development",
+      "Funnels & Form Integrations",
+    ],
+    image: work1,
+    imageAlt: "Web Development & UI/UX",
+    panelClass: styles.panel1,
   },
 ];
 
@@ -92,9 +117,9 @@ export default function ScrollSection() {
         <div
           key={service.number}
           className={`${styles.panel} ${service.panelClass}`}
-          style={{ 
+          style={{
             zIndex: i + 1,
-            top: `${i * 20}px` 
+            top: `${i * 20}px`,
           }}
         >
           <div className={styles.inner}>
@@ -115,12 +140,18 @@ export default function ScrollSection() {
               <ul className={styles.features}>
                 {service.features.map((feat) => (
                   <li key={feat} className={styles.featureItem}>
-                    {/* استبدال وسم الـ <i> بأيقونة الـ Lucide الملوّنة */}
                     <CheckCircle2 className={styles.checkIcon} size={18} />
                     <span>{feat}</span>
                   </li>
                 ))}
               </ul>
+
+              {/* زر داخلي في كل كارت يوجه لصفحة الخدمات الكاملة عند الرغبة في التوسع */}
+              <div className={styles.ctaContainer}>
+                <Link to="/services" className={styles.ctaSecondary}>
+                  See services
+                </Link>
+              </div>
             </div>
 
             {/* ── Right: image ── */}

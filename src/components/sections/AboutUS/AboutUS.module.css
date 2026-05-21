@@ -58,18 +58,18 @@
   letter-spacing: 0.02em;
   margin: 0 auto 2.5rem;
   backdrop-filter: blur(10px);
-
-  /* حركة ناعمة جداً عند التمرير بالماوس */
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* تأثير الـ Hover الخاص باللون الأزرق الموجه بدقة */
-/* تأثير الـ Hover الذهبي المضيء الموجه بدقة */
 .badge:hover {
-  background-color: rgba(255, 193, 7, 0.08) !important; /* خلفية زجاجية ذهبية خفيفة جداً */
-  border-color: var(--primary) !important;             /* إضاءة الحدود باللون الذهبي الصافي */
-  box-shadow: var(--shadow-glow);                       /* استخدام شادو التوهج الذهبي الثابت لمشروعك */
+  background-color: rgba(255, 193, 7, 0.08) !important;
+  border-color: var(--primary) !important;
+  box-shadow: var(--shadow-glow);
 }
+
 .badgeIcon {
   color: var(--primary);
 }
@@ -111,7 +111,7 @@
 }
 
 .headingAccent {
-  background: var(--gradient-gold);
+  background: var(--primary) ;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -124,9 +124,30 @@
   margin: 0;
 }
 
-.highlight {
-  color: var(--primary);
-  font-weight: 700;
+/* ── Single Blue Button ── */
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.9rem 2.25rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--foreground) !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(13, 41, 84, 0.3);
+}
+
+.ctaButton:hover {
+  background: linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%);
+  box-shadow: 0 12px 28px rgba(43, 110, 194, 0.45);
+  transform: translateY(-2px);
 }
 
 /* ── Text reveal animations ── */
@@ -193,7 +214,9 @@
   backdrop-filter: blur(16px);
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .metricsBox.metricsVisible {
@@ -246,16 +269,12 @@
   }
 }
 
-.metricNumber {
-  font-size: clamp(1.4rem, 3vw, 2rem);
+.metricNumberFix {
+  font-size: clamp(1.2rem, 2.5vw, 1.75rem); /* تصغير مرن ومناسب للرقم الطويل مع العملة */
   font-weight: 800;
   color: var(--foreground);
   letter-spacing: -0.02em;
   line-height: 1;
+  direction: ltr; /* لضمان ظهور العملة SAR بجانب الرقم بشكل سليم */
 }
 
-.metricLabel {
-  font-size: 0.82rem;
-  color: color-mix(in srgb, var(--foreground) 45%, transparent);
-  letter-spacing: 0.01em;
-}

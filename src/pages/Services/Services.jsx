@@ -3,7 +3,7 @@ import  ServicesGrid  from "../../components/sections/ServicesGrid/ServicesGrid"
 import { ProcessSection } from "../../components/sections/ProcessSection/ProcessSection";
 import { CTABanner } from "../../components/sections/CTABanner/CTABanner";
 import { Reveal } from "@/components/sections/Reveal/Reveal";
-  
+  import ServicesDetail from "./ServiceDetail";
 import styles from "./Services.module.css";
 
 function ServicesPage() {
@@ -42,8 +42,8 @@ function ServicesPage() {
           </div>
         </div>
       </section>
-
       <ServicesGrid />
+      <ServicesDetail />
       <ProcessSection />
       <CTABanner />
     </>

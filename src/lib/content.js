@@ -11,15 +11,15 @@ export const HERO_SLIDES = [
   {
     id: "strategy",
     eyebrow: "01 — Strategy",
-    title: "Digital Marketing\nStrategy",
-    desc: "Data-driven roadmaps that turn ambition into measurable growth.",
+    title: "Integrated System for\nMarketing & Growth",
+    desc: "We build a core services reference from market analysis to conversion paths.",
     image: strategy,
   },
   {
     id: "social",
     eyebrow: "02 — Social",
-    title: "Social Media\nManagement",
-    desc: "Content that earns attention and communities that compound.",
+    title: "We Design Brands\nThat Stand Out",
+    desc: "Branding · Content Strategy · Meta Ads · Company Profiles",
     image: social,
   },
 ];
@@ -27,176 +27,159 @@ export const HERO_SLIDES = [
 export const SERVICES = [
   {
     slug: "brand-identity",
-    title: "Brand Identity",
+    title: "Brand Identity & Positioning",
     short: "Logo, guidelines & full visual system.",
     icon: "Sparkles",
-    long: "Logo design, brand guidelines and a complete visual identity kit — built around your brand DNA so every touchpoint feels unmistakably yours.",
+    long: "Clear positioning statement development, core messaging, suitable tone of voice, and turning features into customer-relevant benefits without exaggeration.",
   },
   {
     slug: "company-profile",
-    title: "Company Profile",
-    short: "12-page profile with content & source files.",
+    title: "Company Profile Design",
+    short: "Custom profile with professional descriptions.",
     icon: "FileText",
-    long: "A polished 12-page company profile: strategic content development, visual storytelling, custom layout and editable source files — print and digital ready.",
+    long: "Professional description of delivered services, writing simplified case studies, and turning previous work into a sales tool to build trust quickly.",
   },
   {
     slug: "social-media-design",
     title: "Social Media Design",
-    short: "Posts, stories, highlights & short videos.",
+    short: "Impactful posts, stories & dynamic highlights.",
     icon: "Image",
-    long: "Monthly social design packages — 12 posts, 4 short videos (30s each), 10 stories and highlight covers — built to stop the scroll and stay on-brand.",
+    long: "Bio and CTA optimization, highlight organization, and content scheduling to turn the profile into a trust-building environment for new visitors.",
   },
   {
     slug: "content-strategy",
-    title: "Content & Creative",
-    short: "Content strategy and creative direction.",
+    title: "Content & Creative Strategy",
+    short: "Content pillars, hook generation & video scripting.",
     icon: "PenLine",
-    long: "Content strategy, copywriting and creative direction that turns scattered posts into a system serving awareness, trust and sales.",
+    long: "Separation between educational and sales content based on customer stages, writing captions, strong hook development, and video script writing.",
   },
   {
     slug: "media-buying",
-    title: "Meta Ads & Media Buying",
-    short: "Performance ads across Meta, TikTok & more.",
+    title: "Meta Ads & Performance",
+    short: "Complete campaign management & optimization.",
     icon: "Target",
-    long: "Full-funnel paid media on Meta, TikTok, Snapchat and X. Three engagement tiers — from up-to $1K monthly budgets to $4K+ long-term plans, plus quick-cash pulse campaigns.",
+    long: "Management of Awareness, Traffic, Messages, and Leads campaigns. Custom audience setup and optimization based on data to turn spend into growth.",
   },
   {
-    slug: "social-management",
-    title: "Social Management",
-    short: "Always-on community & platform moderation.",
+    slug: "sales-communication",
+    title: "WhatsApp & Sales Support",
+    short: "Qualification flows & reply alignment.",
     icon: "MessageCircle",
-    long: "Social media moderation and community management per platform per month — replies, qualification, lead capture and brand-voice consistency.",
+    long: "Professional welcome message writing, short qualification flows, and reply development for common objections to reduce lost customers from slow replies.",
   },
   {
-    slug: "web-development",
-    title: "Landing Pages & Websites",
-    short: "Conversion-built sites & landing pages.",
+    slug: "customer-journey",
+    title: "Customer Journey & Conversion",
+    short: "Landing paths & conversion optimization.",
     icon: "Code",
-    long: "Custom landing pages and full websites engineered for speed, SEO and conversion — wired into your campaign and CRM stack from day one.",
+    long: "Mapping paths from first exposure to inquiry. Landing path recommendations and qualification improvements to increase the chance of turning interest into sales.",
   },
   {
-    slug: "marketing-strategy",
-    title: "Marketing & Growth Strategy",
-    short: "Strategy, positioning & launch systems.",
+    slug: "business-development",
+    title: "Business Development & Growth",
+    short: "Service packages & commercial optimization.",
     icon: "Compass",
-    long: "Market and competitor analysis, brand positioning, messaging, customer journey and launch systems — the operating layer that makes every channel pull together.",
+    long: "Service and package presentation development, commercial messaging improvement, and aligning marketing with your real business objectives.",
   },
 ];
 
 export const PORTFOLIO = [
-  { id: 1, title: "Argan Skincare Relaunch", category: "Branding", image: w1 },
-  { id: 2, title: "Helios Apparel — D2C", category: "E‑commerce", image: w2 },
-  { id: 3, title: "Belvet Beauty", category: "Social", image: w3 },
+  { id: 1, title: "Nibras 360 Visual Identity", category: "Branding", image: w1 },
+  { id: 2, title: "Nurture Nature's Touch", category: "Identity Guide", image: w2 },
+  { id: 3, title: "Ippo Child Foot Branding", category: "Branding", image: w3 },
 ];
 
 export const PORTFOLIO_CATEGORIES = [
   "All",
   "Branding",
-  "E‑commerce",
-  "Social",
+  "Identity Guide",
+  "Social Media",
   "Paid Ads",
-  "Production",
+  "Company Profiles",
 ];
 
 export const STATS = [
-  { value: 240, suffix: "+", label: "Brands launched" },
+  { value: 14, suffix: "+", label: "Core services built" },
   { value: 12, suffix: "x", label: "Avg. ROAS uplift" },
-  { value: 38, suffix: "M", label: "Impressions / mo" },
-  { value: 14, suffix: "yrs", label: "In the industry" },
+  { value: 26, suffix: "M+", label: "Trackable Sales (SAR)" },
+  { value: 8, suffix: "+yrs", label: "Team Experience" },
 ];
 
 export const TESTIMONIALS = [
   {
-    name: "Dana Whitcombe",
-    role: "CMO, Argan Skincare",
-    quote: "Lumen rebuilt our brand world from the ground up. Six months later we tripled DTC revenue and got picked up by Sephora.",
+    name: "Mohammed Alfi",
+    role: "Founder, Belt & Road Trading",
+    quote: "Ego Studio turned our business data into a strong, persuasive system. Their professional profile development completely elevated our corporate presence.",
   },
   {
-    name: "Marcus Lin",
-    role: "Founder, Helios Apparel",
-    quote: "The closest thing to an in-house team I've ever worked with. Strategic, fast, and the creative is genuinely award-worthy.",
+    name: "Nibras Team",
+    role: "Management, Nibras 360",
+    quote: "The brand communication is incredibly distinct. They took our visual identity and built a precise, cohesive framework that makes our business easier to remember.",
   },
   {
-    name: "Sara Okonkwo",
-    role: "Head of Growth, Northstar",
-    quote: "ROAS doubled in the first quarter and kept climbing. Their measurement work alone paid for the engagement.",
-  },
-  {
-    name: "Theo Reyes",
-    role: "CEO, Belvet",
-    quote: "They treated our small brand like it mattered — and now it does. Genuinely the partnership we'd been looking for for years.",
+    name: "Panda Host Admin",
+    role: "Growth Lead, Panda Host",
+    quote: "Our paid ad campaigns transformed from random spending into a reliable learning system. Lead quality improved dramatically within the first period.",
   },
 ];
 
 export const PROCESS = [
   {
     step: "01",
-    title: "Discover",
-    desc: "Workshops, audits and audience research that ground every decision.",
+    title: "Analyze",
+    desc: "We analyze the business model, the market, the target priority audience segments, and competitor gaps.",
   },
   {
     step: "02",
     title: "Define",
-    desc: "Strategy, positioning and a measurement framework you can defend.",
+    desc: "We define the positioning statement, core messaging matrix, and a clear campaign logic path.",
   },
   {
     step: "03",
-    title: "Design",
-    desc: "Brand systems, campaigns and digital products built to perform.",
+    title: "Build",
+    desc: "We build tailored content systems, professional creative direction, ads structure, and conversion paths.",
   },
   {
     step: "04",
-    title: "Deploy",
-    desc: "Launch, optimise and scale — with weekly readouts and quarterly bets.",
+    title: "Optimize",
+    desc: "We execute with structure, review performance data indicators, and deliver ongoing optimizations to turn spend into growth.",
   },
 ];
 
 export const FAQ = [
   {
-    q: "How quickly can we start?",
-    a: "Most engagements kick off within 2–3 weeks of signing. Sprint engagements can start in days.",
+    q: "Is Ego Studio just a social media execution agency?",
+    a: "No. Ego Studio is a growth partner. We don't just execute standalone posts or ads; we build an integrated system where content, advertising, and communication work together to drive sales.",
   },
   {
-    q: "Do you work with startups?",
-    a: "Yes — we have dedicated tracks for both early-stage brands and established companies.",
+    q: "When does a business need your strategy services?",
+    a: "When launching a new service, entering a new priority segment or city, or when you are running campaigns but suffering from weak result quality or customer confusion.",
   },
   {
-    q: "What does a typical engagement look like?",
-    a: "Most clients work with us on a 6–12 month retainer covering strategy, creative and paid media, with clear quarterly OKRs.",
+    q: "How do you measure campaign performance?",
+    a: "We do not chase surface-level superficial numbers. We analyze lead quality, conversion closing rates, cost per result, and direct commercial sales opportunities.",
   },
   {
-    q: "Do you operate globally?",
-    a: "Yes. Headquartered in San Francisco with active campaigns across North America, EMEA and APAC.",
-  },
-  {
-    q: "Will I have a dedicated team?",
-    a: "Always. Every account has a strategy lead, creative lead and channel specialists you'll know by first name.",
+    q: "Do you provide customized packages?",
+    a: "Yes. Our services can be delivered as standalone specialized page projects or as a fully integrated ongoing growth system, depending completely on your business stage and goals.",
   },
 ];
 
 export const BLOG_POSTS = [
   {
-    slug: "the-end-of-cookies",
-    title: "Life after the cookie: a practical playbook",
-    date: "May 02, 2026",
+    slug: "integrated-marketing-systems",
+    title: "Why standalone posts fail to grow your business",
+    date: "May 18, 2026",
     category: "Strategy",
     image: w2,
-    excerpt: "Identity is fragmenting and measurement is harder than ever. Here's how the smartest brands are adapting.",
+    excerpt: "Discover how connecting content pillars, ad messaging, and sales paths turns marketing from a random reaction into a scalable acquisition machine.",
   },
   {
-    slug: "creator-economy-2026",
-    title: "Why the creator economy isn't slowing down",
-    date: "Apr 18, 2026",
-    category: "Social",
+    slug: "optimizing-sales-communication",
+    title: "How slow sales replies are quietly burning your ad budget",
+    date: "Apr 29, 2026",
+    category: "Sales Support",
     image: w3,
-    excerpt: "Five trends reshaping creator partnerships — and the metrics that actually matter.",
-  },
-  {
-    slug: "brand-systems-that-scale",
-    title: "Brand systems that scale across 30+ markets",
-    date: "Mar 27, 2026",
-    category: "Branding",
-    image: w5,
-    excerpt: "What we learned designing identity systems for brands operating in dozens of countries.",
+    excerpt: "Stop wasting money on traffic. Learn the exact welcome flows, qualification frameworks, and common objection templates to protect your lead quality.",
   },
 ];

@@ -1,16 +1,17 @@
 import styles from "./TrustedClients.module.css";
 
 const CLIENTS = [
-  "NORTHSTAR",
-  "ARGAN",
-  "HELIOS",
-  "BELVET",
-  "FOUNDRY",
-  "SERNUM",
-  "ATELIER",
-  "MARÉE",
-  "OBSIDIAN",
-  "VOXEL",
+  "NEBRAS 360",
+  "NURTURE",
+  "IPPO CHILD FOOT",
+  "BELT & ROAD",
+  "PANDA HOST",
+  "AL SHAMAL",
+  "GROWTH POINT",
+  "ALHADF TRAVEL",
+  "ORCA TRAVEL",
+  "WAFDA",
+  "WIQAM"
 ];
 
 export function TrustedClients() {

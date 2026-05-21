@@ -8,6 +8,7 @@
   padding-bottom: 1.75rem;
   width: 100%;
   overflow: hidden;
+  color: #fafafa !important;
   position: relative;
   display: flex;
   align-items: center;      
@@ -47,18 +48,18 @@
   font-size: 1.2rem;        
   font-weight: 800;         
   letter-spacing: 0.05em;   
-  color: var(--foreground);
+  color: #ffff !important;
   opacity: 0.45;            
   text-transform: uppercase;
   white-space: nowrap;
   cursor: default;
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-              color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+              transition: all 0.3s ease;
 }
 
 .clientName:hover {
   opacity: 1;
-  color: var(--secondary) !important; 
+  color: #428bf2 !important;
   cursor: text;
 
 }

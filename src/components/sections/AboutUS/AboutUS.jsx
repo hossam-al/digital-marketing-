@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Fingerprint } from "lucide-react";
 import styles from "./AboutUs.module.css";
+import { Link } from 'react-router-dom';
+
 import about from "@/assets/about.jpg";
+import ButtonMain from "../../layout/buttonMain"; // تأكد من صحة مسار استيراد الزرار حسب ترتيب فولدراتك
 
 const METRICS = [
   { number: "8+", label: "Years of Experience" },
@@ -71,29 +74,12 @@ export function AboutUs() {
               <span className={styles.headingAccent}>Marketing Partner</span>
             </h2>
 
-            <p className={styles.body} ref={textRef}>
-              <span
-                className={revealed ? styles.revealIn : styles.revealHidden}
-              >
-                Aero Marketing is a performance-driven growth partner with 8+
-                years of experience, helping brands across Saudi Arabia and the
-                GCC scale through data-driven marketing systems, generating{" "}
-              </span>
-              <span
-                className={`${styles.highlight} ${revealed ? styles.revealIn : styles.revealHidden}`}
-                style={{ animationDelay: "0.35s" }}
-              >
-                26M+
-              </span>
-              <span
-                className={revealed ? styles.revealIn : styles.revealHidden}
-                style={{ animationDelay: "0.55s" }}
-              >
-                {" "}
-                SAR in trackable sales and achieving 12×–16× ROAS across
-                multiple industries.
-              </span>
+            <p className={`${styles.body} ${revealed ? styles.revealIn : styles.revealHidden}`} ref={textRef}>
+              The Ego Studio is a creative graphic design agency specializing in branding & visual identity, social media design, and company profiles.
+We believe in the power of visual storytelling — we don't just design, we build brands that connect with your audience and achieve your goals.
             </p>
+            
+            <ButtonMain />
           </div>
 
           {/* Right image */}
@@ -101,7 +87,7 @@ export function AboutUs() {
             <div className={styles.imageWrap}>
               <img
                 src={about}
-                alt="Aero Marketing Team"
+                alt="Ego Studio Team"
                 className={styles.image}
               />
               {/* Decorative ring */}
@@ -111,7 +97,8 @@ export function AboutUs() {
         </div>
 
         {/* Metrics Box */}
-       
+     
+
       </div>
     </section>
   );
