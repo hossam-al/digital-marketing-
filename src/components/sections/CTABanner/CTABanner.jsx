@@ -22,7 +22,7 @@ export function CTABanner() {
                 Your next chapter <span className={`${styles.gradientGold} fst-italic`}>starts here.</span>
               </h2>
               
-              <p className="mx-auto mt-4 text-muted fs-5 max-w-600">
+              <p className={`mx-auto mt-4   fs-5 max-w-600 ${styles.fontsmall}`}>
                 Tell us what you're building. We'll bring strategy, creative and a clear path to growth.
               </p>
               

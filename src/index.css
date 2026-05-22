@@ -62,3 +62,8 @@
     oklch(0.1 0.005 60 / 0.85) 100%
   );
 }
+
+/* Override Bootstrap text-muted — الخلفية داكنة فاللون الافتراضي مش واضح */
+.text-muted {
+  color: rgba(255, 255, 255, 0.60) !important;
+}

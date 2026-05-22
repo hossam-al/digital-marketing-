@@ -4,7 +4,9 @@ import { StatsCounter } from "../../components/sections/StatsCounter/StatsCounte
 import { ProcessSection } from "../../components/sections/ProcessSection/ProcessSection";
 import { CTABanner } from "../../components/sections/CTABanner/CTABanner";
 import styles from "./About.module.css";
-
+import { AboutUs } from '../../components/sections/AboutUS/AboutUS';
+import ServicesGrid from '../../components/sections/ServicesGrid/ServicesGrid';
+ 
 function AboutPage() {
   // يمكنك استخدام useEffect لتغيير عنوان الصفحة (Meta title) بدلاً من دالة head القديمة
   React.useEffect(() => {
@@ -20,7 +22,7 @@ function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className={`position-relative overflow-hidden ${styles.heroSection}`}>
+      {/* <section className={`position-relative overflow-hidden ${styles.heroSection}`}>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-10">
@@ -40,10 +42,10 @@ function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Story Section */}
-      <section className={styles.storySection}>
+      {/* <section className={styles.storySection}>
         <div className="container">
           <div className="row g-5 align-items-start">
             <div className="col-md-5">
@@ -73,8 +75,9 @@ function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
-
+      </section> */}
+      <AboutUs />
+      <ServicesGrid />
       <StatsCounter />
       <ProcessSection />
       <CTABanner />

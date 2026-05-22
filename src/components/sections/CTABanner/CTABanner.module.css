@@ -4,7 +4,10 @@
   background-color: #050505;
   color: #ffffff;
 }
-
+.fontsmall {
+  font-size: 0.9rem;
+  color: #918c8c;
+}
 @media (min-width: 768px) {
   .ctaSection {
     padding-top: 9rem;

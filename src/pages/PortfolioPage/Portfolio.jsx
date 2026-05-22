@@ -2,6 +2,9 @@ import React from "react";
 import { PortfolioShowcase } from "@/components/sections/PortfolioShowcase/PortfolioShowcase";
 import { CTABanner } from "@/components/sections/CTABanner/CTABanner";
 import { Reveal } from "@/components/sections/Reveal/Reveal";
+import CaseStudies from "@/components/sections/CaseStudies/CaseStudies";
+import { StatsCounter } from "@/components/sections/StatsCounter/StatsCounter";
+import Testimonials from "@/components/sections/Testimonials/Testimonials";
 import styles from "./Portfolio.module.css";
 
 function PortfolioPage() {
@@ -29,16 +32,29 @@ function PortfolioPage() {
                   Case studies
                   <br />& craft.
                 </h1>
+                <p className="mt-4 text-muted fs-5" style={{ maxWidth: 560 }}>
+                  Real businesses, real results. Every project here started with a clear brief
+                  and ended with measurable growth.
+                </p>
               </Reveal>
             </div>
           </div>
         </div>
       </section>
 
-      {/* معرض الأعمال الممرر */}
+      {/* Portfolio Grid */}
       <PortfolioShowcase />
-      
-      {/* بنر الإجراء السفلي */}
+
+      {/* Numbers that back the work */}
+      <StatsCounter />
+
+      {/* Detailed Case Studies */}
+      <CaseStudies />
+
+      {/* Client Testimonials */}
+      <Testimonials />
+
+      {/* Call To Action */}
       <CTABanner />
     </>
   );

@@ -87,6 +87,9 @@ export const PORTFOLIO = [
   { id: 1, title: "Nibras 360 Visual Identity", category: "Branding", image: w1 },
   { id: 2, title: "Nurture Nature's Touch", category: "Identity Guide", image: w2 },
   { id: 3, title: "Ippo Child Foot Branding", category: "Branding", image: w3 },
+  { id: 4, title: "PACKGO Social Campaign", category: "Social Media", image: w4 },
+  { id: 5, title: "Aqua Cool Paid Ads", category: "Paid Ads", image: w5 },
+  { id: 6, title: "Belt & Road Company Profile", category: "Company Profiles", image: w6 },
 ];
 
 export const PORTFOLIO_CATEGORIES = [

@@ -30,7 +30,7 @@ export function ProcessSection() {
                       {p.step}
                     </div>
                     <h3 className={`mt-4 fw-normal h4 ${styles.fontDisplay}`}>{p.title}</h3>
-                    <p className="mt-2 text-muted small">{p.desc}</p>
+                    <p className={`mt-2  small ${styles.fontsmall}`}>{p.desc}</p>
                   </div>
                 </Reveal>
               </div>

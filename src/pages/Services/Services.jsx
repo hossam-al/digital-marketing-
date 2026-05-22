@@ -1,13 +1,15 @@
 import React from "react";
-import  ServicesGrid  from "../../components/sections/ServicesGrid/ServicesGrid";  
 import { ProcessSection } from "../../components/sections/ProcessSection/ProcessSection";
 import { CTABanner } from "../../components/sections/CTABanner/CTABanner";
 import { Reveal } from "@/components/sections/Reveal/Reveal";
-  import ServicesDetail from "./ServiceDetail";
+import ServicesDetail from "./ServiceDetail";
+import WhyChooseUs from "../../components/sections/WhyChooseUs/WhyChooseUs";
+import { StatsCounter } from "../../components/sections/StatsCounter/StatsCounter";
+import Testimonials from "../../components/sections/Testimonials/Testimonials";
+import FAQSection from "../../components/sections/FAQSection/FAQSection";
 import styles from "./Services.module.css";
 
 function ServicesPage() {
-  // إدارة الـ Meta Tags متوافقة مع الأنظمة العادية
   React.useEffect(() => {
     document.title = "Services — Lumen & Co.";
     const metaDesc = document.querySelector('meta[name="description"]');
@@ -42,9 +44,26 @@ function ServicesPage() {
           </div>
         </div>
       </section>
-      <ServicesGrid />
+
+      {/* All 14 Services */}
       <ServicesDetail />
+
+      {/* Why Choose Us */}
+      <WhyChooseUs />
+
+      {/* Stats / Social Proof */}
+      <StatsCounter />
+
+      {/* How We Work */}
       <ProcessSection />
+
+      {/* Client Testimonials */}
+      <Testimonials />
+
+      {/* FAQ */}
+      <FAQSection />
+
+      {/* Call To Action */}
       <CTABanner />
     </>
   );
