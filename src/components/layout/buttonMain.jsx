@@ -1,13 +1,15 @@
-import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import style from "./buttonMain.module.css";
-import { Link } from 'react-router-dom';
+
 const ButtonMain = () => {
+  const { pathname } = useLocation();
+
+  if (pathname === "/about") return null;
+
   return (
-    <>
-        <button className={style.ctaButton}>
-            <Link to="/about" >Learn More</Link>
-        </button>
-    </>
+    <button className={style.ctaButton}>
+      <Link to="/about">Learn More</Link>
+    </button>
   );
 };
 

@@ -84,12 +84,72 @@ export const SERVICES = [
 ];
 
 export const PORTFOLIO = [
-  { id: 1, title: "Nibras 360 Visual Identity", category: "Branding", image: w1 },
-  { id: 2, title: "Nurture Nature's Touch", category: "Identity Guide", image: w2 },
-  { id: 3, title: "Ippo Child Foot Branding", category: "Branding", image: w3 },
-  { id: 4, title: "PACKGO Social Campaign", category: "Social Media", image: w4 },
-  { id: 5, title: "Aqua Cool Paid Ads", category: "Paid Ads", image: w5 },
-  { id: 6, title: "Belt & Road Company Profile", category: "Company Profiles", image: w6 },
+  {
+    id: 1, title: "Nibras 360 Visual Identity", category: "Branding", image: w1,
+    client: "Nibras 360", year: "2024",
+    description: "A complete visual identity system built from the ground up — logo, color palette, typography, and brand guidelines that communicate precision and trust across all touchpoints.",
+    services: ["Brand Strategy", "Logo Design", "Visual Identity System", "Brand Guidelines"],
+    results: [
+      { label: "Brand consistency", value: "100%" },
+      { label: "Assets delivered", value: "40+" },
+      { label: "Turnaround", value: "3 weeks" },
+    ],
+  },
+  {
+    id: 2, title: "Nurture Nature's Touch", category: "Identity Guide", image: w2,
+    client: "Nurture Nature", year: "2024",
+    description: "A comprehensive identity guide that documented every aspect of the brand — voice, tone, visual rules, and usage standards to ensure consistency across all team members and channels.",
+    services: ["Identity Guidelines", "Brand Voice", "Typography System", "Color Usage Rules"],
+    results: [
+      { label: "Pages delivered", value: "28" },
+      { label: "Brand elements", value: "60+" },
+      { label: "Team adoption", value: "Full" },
+    ],
+  },
+  {
+    id: 3, title: "Ippo Child Foot Branding", category: "Branding", image: w3,
+    client: "Ippo", year: "2023",
+    description: "A playful yet professional branding system for a children's footwear brand — crafted to appeal to both parents and kids while building strong shelf and digital presence.",
+    services: ["Brand Identity", "Packaging Direction", "Social Media Visual Style", "Brand Story"],
+    results: [
+      { label: "Market reception", value: "Positive" },
+      { label: "SKUs branded", value: "12+" },
+      { label: "Launch timeline", value: "4 weeks" },
+    ],
+  },
+  {
+    id: 4, title: "PACKGO Social Campaign", category: "Social Media", image: w4,
+    client: "PACKGO", year: "2024",
+    description: "A structured social media campaign designed to build awareness, drive engagement, and convert followers into paying customers — combining content pillars with a clear posting strategy.",
+    services: ["Content Strategy", "Caption Writing", "Creative Direction", "Campaign Planning"],
+    results: [
+      { label: "Engagement rate", value: "+180%" },
+      { label: "Posts delivered", value: "60/mo" },
+      { label: "Follower growth", value: "+3,200" },
+    ],
+  },
+  {
+    id: 5, title: "Aqua Cool Paid Ads", category: "Paid Ads", image: w5,
+    client: "Aqua Cool", year: "2024",
+    description: "A full Meta ads system built from scratch — from campaign architecture and audience segmentation to creative testing and ongoing optimization that turned ad spend into measurable monthly revenue.",
+    services: ["Meta Ads Management", "Campaign Structure", "Audience Targeting", "Performance Optimization"],
+    results: [
+      { label: "ROAS achieved", value: "14x" },
+      { label: "Monthly sales", value: "170K+ SAR" },
+      { label: "Growth period", value: "3 months" },
+    ],
+  },
+  {
+    id: 6, title: "Belt & Road Company Profile", category: "Company Profiles", image: w6,
+    client: "Belt & Road Trading", year: "2023",
+    description: "A professional company profile that transformed raw business data into a persuasive sales document — designed to open doors with corporate clients and communicate credibility at first glance.",
+    services: ["Copywriting", "Profile Design Direction", "Case Study Writing", "Service Presentation"],
+    results: [
+      { label: "Pages designed", value: "24" },
+      { label: "Client feedback", value: "Excellent" },
+      { label: "Deals influenced", value: "3 major" },
+    ],
+  },
 ];
 
 export const PORTFOLIO_CATEGORIES = [

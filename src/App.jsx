@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import Loader from "./components/Loader";
+import FloatingActions from "./components/FloatingActions";
 
 import Home from "./pages/Home";
 import About from "./pages/AboutPage/About";
@@ -11,21 +15,31 @@ import Contact from "./pages/ContactUS/Contact";
 import NotFound from "./pages/NotFound";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <>
-      <Navbar />
+      {loading && <Loader onDone={() => setLoading(false)} />}
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        {/* <Route path="/blog" element={<Blog />} /> */}
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      {!loading && (
+        <>
+          <ScrollToTop />
+          <FloatingActions />
+          <Navbar />
 
-      <Footer />
+          <Routes>
+            <Route path="/"          element={<Home />} />
+            <Route path="/about"     element={<About />} />
+            <Route path="/services"  element={<Services />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            {/* <Route path="/blog" element={<Blog />} /> */}
+            <Route path="/contact"   element={<Contact />} />
+            <Route path="*"          element={<NotFound />} />
+          </Routes>
+
+          <Footer />
+        </>
+      )}
     </>
   );
 }
