@@ -1,9 +1,10 @@
 .heroSection {
-  padding-top: 10rem;
-  padding-bottom: 3rem;
-  /* الخلفية الداكنة المتدرجة الفخمة للموقع */
-  background: linear-gradient(180deg, #121212 0%, #080808 100%);
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+  background: var(--gradient-hero);
   color: #ffffff;
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 768px) {

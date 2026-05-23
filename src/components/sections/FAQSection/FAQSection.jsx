@@ -3,44 +3,44 @@ import styles from "./FAQSection.module.css";
 
 const faqs = [
   {
-    question: "What services do you offer?",
+    question: "What makes EGO STUDIO different from traditional agencies?",
     answer:
-      "We offer comprehensive digital marketing services including SEO, social media marketing, content creation, web development, and brand strategy. Our team creates customized solutions tailored to your specific business needs.",
+      "We are not just an execution agency; we are a growth partner. We do not treat marketing as disconnected posts and ads. Instead, we build a complete, integrated system where content supports ads, ads drive communication, and communication directly secures sales.",
   },
   {
-    question: "How long does a typical project take?",
+    question: "What core areas does your integrated system cover?",
     answer:
-      "Project timelines vary depending on scope and complexity. A typical website project takes 4-8 weeks, while ongoing marketing campaigns are managed on monthly retainer basis. We provide detailed timelines during consultation.",
+      "Our system bridges three main disciplines under one roof: Business Strategy (market and competitor analysis, brand positioning), Content Matrix (copywriting, video scripts, profile designs), and Paid Media & Performance (Meta ads management, customer journeys, and WhatsApp sales flow optimization).",
   },
   {
-    question: "What makes your approach different?",
+    question: "How do you measure campaign and business success?",
     answer:
-      "Our data-driven approach combined with creative excellence sets us apart. We focus on measurable results, transparent communication, and building long-term partnerships rather than just delivering services.",
+      "We focus entirely on metrics that impact your business commercial objectives. While we track standard data like CTR, CPC, and CPM, our primary indicator of success is lead quality, trackable conversion paths, and actual sales opportunities created.",
   },
   {
-    question: "Do you work with small businesses?",
+    question: "What commercial sectors do you specialize in?",
     answer:
-      "Absolutely! We work with businesses of all sizes, from startups to enterprises. We offer scalable solutions that grow with your business and provide flexible pricing options to accommodate different budgets.",
+      "We custom-scope our systems to serve high-intent sectors including private medical services and clinics, real estate and architectural design, digital products and applications, premium local brands, and business providers looking for trackable market expansion.",
   },
   {
-    question: "How do you measure success?",
+    question: "Do you help with existing corporate profiles and materials?",
     answer:
-      "We use comprehensive analytics to track KPIs including conversion rates, traffic growth, engagement metrics, and ROI. We provide regular reports and adjust strategies based on performance data.",
+      "Yes, absolutely. One of our specialized services is converting raw business metrics and delivered projects into active corporate sales tools. We restructure portfolios, design professional company profiles, and build simplified case studies that attract high-budget clients.",
   },
   {
-    question: "What is your pricing structure?",
+    question: "How do your WhatsApp and sales communication services work?",
     answer:
-      "We offer flexible pricing models including project-based fees, monthly retainers, and performance-based pricing. During our initial consultation, we'll recommend the best approach for your budget and goals.",
+      "We map the customer path right from the ad click down to the closing chat. We improve early conversation structures by writing professional welcome flows, short qualification sequences, and objection reply matrices to help your sales team close deals uniformly.",
   },
   {
-    question: "Can you help with existing marketing?",
+    question: "What is your working philosophy on content creation?",
     answer:
-      "Yes! We can audit your current marketing efforts and optimize existing campaigns. Many clients come to us for improvement of their current strategies, and we excel at enhancing what's already working.",
+      "We believe that effective marketing never starts with a random post. Every piece of creative content must serve a clear objective. We split assets strategically into educational, sales, and conversion content mapped precisely across different stages of the customer decision journey.",
   },
   {
-    question: "How do we get started?",
+    question: "How do we get started with EGO STUDIO?",
     answer:
-      "Getting started is easy! Contact us for a free consultation where we'll discuss your goals, challenges, and how we can help. From there, we'll create a customized proposal and timeline for your project.",
+      "It starts with a direct consultation call. We analyze your current business situation, identify growth opportunities, and recommend the exact system integration or project setup required to achieve your commercial scaling goals.",
   },
 ];
 
@@ -65,7 +65,7 @@ const QuestionMarkIcon = () => (
     height="14"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="oklch(0.15 0.01 60)"
+    stroke="var(--primary, #ffc107)" /* جعل اللون يقرأ المتغير الأساسي للبراند تلقائياً */
     strokeWidth="2.5"
     strokeLinecap="round"
     strokeLinejoin="round"
@@ -118,8 +118,8 @@ export default function FAQSection() {
             </h2>
 
             <p className={styles.description}>
-              Find answers to common questions about our services and how we can
-              help your business grow.
+              Find detailed answers about our integrated growth systems, performance 
+              tracking, and how we deliver measurable commercial outcomes.
             </p>
 
             <div className={styles.accentLine} />

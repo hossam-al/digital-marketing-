@@ -10,23 +10,21 @@ import {
 const ITEMS = [
   {
     icon: Award,
-    title: "Exceptional Experience",
+    title: "Integrated Growth System",
     description:
-      "We combine strategy, creativity, and performance to deliver marketing solutions that exceed expectations and drive measurable growth.",
+      "We do not treat marketing as disconnected posts and ads. We build an integrated system from market analysis to conversion paths that serves your commercial objectives.",
   },
-
   {
     icon: Settings2,
-    title: "Tailored Solutions",
+    title: "Measurable Performance",
     description:
-      "Every brand is unique — our strategies are customized to match your goals, market, and audience for maximum impact.",
+      "We manage campaign planning, message testing, and budgets based on real data. Performance is measured by lead quality and revenue generation, not surface numbers.",
   },
-
   {
     icon: Handshake,
-    title: "Continuous Support",
+    title: "Continuous Optimization",
     description:
-      "We stay by your side every step of the way, providing dedicated support and proactive communication to ensure lasting success.",
+      "Our team stays by your side, delivering detailed performance reviews and actionable insights to turn continuous marketing spending into permanent business growth.",
   },
 ];
 
@@ -39,7 +37,8 @@ export default function WhyChoose() {
         <div className={styles.header}>
 
           <div className={styles.badge}>
-            <Sparkles size={16} />
+            {/* ربط لون الأيقونة مباشرة بالمتغيرات المضيئة لتطابق التصميم */}
+            <Sparkles size={16} style={{ color: "var(--primary)" }} />
             <span>Why Choose Us</span>
           </div>
 
@@ -48,9 +47,8 @@ export default function WhyChoose() {
           </h2>
 
           <p className={styles.subheading}>
-            Choosing Aero Marketing means working with a performance driven
-            agency that transforms marketing into real, trackable growth through
-            strategy, creativity, and execution.
+            Choosing EGO STUDIO means working with a growth partner that transforms 
+            marketing into a structured system, driving real and trackable commercial development.
           </p>
 
         </div>
@@ -64,7 +62,8 @@ export default function WhyChoose() {
                 key={item.title}
                 className={styles.card}
               >
-                <div className={styles.iconWrap}>
+                {/* تم توحيد لون الأيقونة الافتراضي ليعمل ديناميكياً مع الـ CSS الحالي */}
+                <div className={styles.iconWrap} style={{ color: "#fafafa" }}>
                   <Icon size={24} />
                 </div>
 

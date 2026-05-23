@@ -7,56 +7,103 @@
 .label {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
-  color: rgba(255, 255, 255, 0.60);
+  color: rgba(255, 255, 255, 0.6);
 }
 
+/* Inputs */
 .inputControl {
-  background-color: #121214 !important; /* bg-surface */
-  border: 1px solid #222225 !important; /* border-border */
-  color: #ffffff !important;
+  background-color: #121214;
+  border: 1px solid #222225;
+  color: #ffffff;
   border-radius: 0.75rem;
   padding: 0.75rem 1rem;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .inputControl:focus {
-  border-color: #f59e0b !important; /* focus:border-primary */
-  box-shadow: none !important;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
 }
 
+/* Button */
 .btnGold {
-  padding: 0.85rem 1.75rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  box-shadow: 0 5px 15px rgba(245, 158, 11, 0.15);
-  transition: transform 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.9rem 2.25rem;
+
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+
+  background: linear-gradient(
+    135deg,
+    #2b6ec2 0%,
+    #174b91 50%,
+    #0d2954 100%
+  );
+
+
+  border: 1px solid var(--border, #222225);
+  color: #ffffff !important;
+  text-decoration: none;
+
+  box-shadow: 0 8px 20px rgba(43, 110, 194, 0.15);
+
+  transition: all 0.3s ease;
+    width: fit-content;
+  align-self: flex-start;
 }
 
+/* Hover effect */
 .btnGold:hover {
-  transform: scale(1.02);
+  background: linear-gradient(
+    135deg,
+    #428bf2 0%,
+    #2062ba 50%,
+    #11366b 100%
+  );
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 15px 35px rgba(43, 110, 194, 0.4);
 }
 
+/* Optional: active click state */
+.btnGold:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 10px 20px rgba(43, 110, 194, 0.25);
+}
+
+/* Icons */
 .iconColor {
   color: #f59e0b;
 }
 
+/* Links */
 .infoLink {
   color: #ffffff;
-  opacity: 0.9;
-  transition: color 0.2s ease;
+  opacity: 0.85;
+  transition: all 0.2s ease;
 }
 
 .infoLink:hover {
   color: #f59e0b;
+  opacity: 1;
 }
 
+/* Map */
 .mapWrapper {
-  border-color: #222225 !important;
+  border: 1px solid #222225;
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 .mapIframe {
   border: 0;
-  filter: grayscale(1) invert(0.9) contrast(1.2); /* مظهر خريطة داكن مطابق للثيم الأنيق */
+  filter: grayscale(1) contrast(1.2);
 }

@@ -1,81 +1,82 @@
 import { Trophy, ArrowRight } from "lucide-react"; // استيراد الأيقونات السينمائية المناسبة للمحتوى
+import { Link } from "react-router-dom"; // استيراد الـ Link للتنقل بسلاسة لصفحة البورتفوليو الكلي
 import styles from "./CaseStudies.module.css";
 import video from "@/assets/V1.mp4";
 import logo1 from "@/assets/loooo1.webp";
 import logo2 from "@/assets/loooo2.webp";
 import logo3 from "@/assets/loooo3.webp";
 import logo4 from "@/assets/loooo4.webp";
-import logo5 from "@/assets/loooo5.webp";
+import logo5 from "@/assets/loooo5.webp"; // يمكنك استخدام اللوجو المتوفر للشركة الخامسة
 
 const CASES = [
   {
     id: 1,
-    company: "PACKGO",
+    company: "INTEGRATED GROWTH SYSTEM",
     logo: logo1,
     description:
-      "We built PackGo's acquisition system from scratch, surpassing 2,500,000 SAR in sales within 6 months with exceptional campaign performance.",
-    before: { label: "Ad Spend", value: "< 15% of Total Sales" },
-    after: { label: "Total Sales", value: "2,500,000+ SAR" },
+      "We engineered an integrated acquisition funnel across various commercial sectors, driving massive volume and capturing extensive business growth data.",
+    before: { label: "Ad Optimization", value: "Data-Driven Funnels" },
+    after: { label: "Trackable Sales", value: "13,700,000+ SAR" },
     metrics: [
-      { value: "15x – 18x", label: "ROAS" },
-      { value: "6 Months", label: "Growth Period" },
-      { value: "High-Intent", label: "Traffic Quality" },
+      { value: "12x – 16x", label: "Avg. ROAS Uplift" },
+      { value: "Multi-Sector", label: "System Scalability" },
+      { value: "High-Intent", label: "Lead Quality" },
     ],
   },
   {
     id: 2,
-    company: "SHAHY",
-    logo: logo5,
+    company: "NIBRAS 360",
+    logo: logo2, 
     description:
-      "Restored revenue growth for Tabuk's 7-branch fast food chain with scalable performance campaigns and efficient ad spend.",
-    before: { label: "Revenue Before", value: "SAR 700,000" },
-    after: { label: "Revenue After", value: "SAR 1,200,000+" },
+      "Developed a precise visual identity and structured a cohesive brand positioning statement, transforming their market presence into a distinct communication system.",
+    before: { label: "Brand Presence", value: "Fragmented Identity" },
+    after: { label: "Visual System", value: "100% Cohesive Guide" },
     metrics: [
-      { value: "12x – 18x", label: "ROAS" },
-      { value: "3 Months", label: "Growth Period" },
-      { value: "+60% / branch", label: "Daily Order Volume" },
+      { value: "Unified", label: "Tone of Voice" },
+      { value: "Premium", label: "Market Positioning" },
+      { value: "Structured", label: "Core Messaging" },
     ],
   },
   {
     id: 3,
-    company: "LEATHER MATE",
-    logo: logo2,
+    company: "BELT & ROAD TRADING",
+    logo: logo3,
     description:
-      "We tripled revenue in under 90 days using precise targeting, high-intent creatives, and a performance-driven strategy.",
-    before: { label: "Before", value: "110,000 SAR/mo" },
-    after: { label: "After", value: "350,000+ SAR/mo" },
+      "Transformed raw business metrics and data into a highly persuasive 12-page company profile, turning their past delivered work into an active corporate sales tool.",
+    before: { label: "Corporate Presence", value: "Generic Description" },
+    after: { label: "Company Profile", value: "12-Page Sales Tool" },
     metrics: [
-      { value: "8x – 16x", label: "ROAS" },
-      { value: "90 Days", label: "Growth Period" },
-      { value: "< 20,000 SAR", label: "Ad Spend / Month" },
+      { value: "Professional", label: "Service Copywriting" },
+      { value: "Targeted", label: "B2B Credibility" },
+      { value: "Print & Digital", label: "Ready Files" },
     ],
   },
   {
     id: 4,
-    company: "AQUA COOL",
+    company: "PANDA HOST",
     logo: logo4,
     description:
-      "We built Aqua Cool's sales funnel from scratch, reaching 170,000+ SAR/month in 3 months with industry-leading ROAS.",
-    before: { label: "Ad Spend", value: "≈ 12–17K SAR/mo" },
-    after: { label: "Online Sales", value: "170,000+ SAR/mo" },
+      "Re-engineered their advertising funnels on Meta, transforming traditional random budget spending into a continuous digital learning and optimization system.",
+    before: { label: "Campaign Testing", value: "Random Ad Spending" },
+    after: { label: "Funnel Conversion", value: "Continuous Learning" },
     metrics: [
-      { value: "8x – 12x", label: "ROAS" },
-      { value: "< 14%", label: "Ad Spend %" },
-      { value: "3 Months", label: "Growth Period" },
+      { value: "Optimized", label: "Cost Per Lead" },
+      { value: "Full-Funnel", label: "Meta Ad Setup" },
+      { value: "Actionable", label: "Performance Data" },
     ],
   },
   {
     id: 5,
-    company: "SAMA ACADEMY",
-    logo: logo3,
+    company: "AL ASWAR AL SAMEDA CO.",
+    logo: logo5, // كارت فخم مخصص لقطاع الإنشاءات والمقاولات من ملفاتك الحقيقية
     description:
-      "We built SAMA Academy's revenue engine from scratch, reaching 150,000 SAR/month in 3 months with a lean ad budget.",
-    before: { label: "Ad Spend", value: "≈ 8–10K SAR/mo" },
-    after: { label: "Revenue", value: "150,000+ SAR/mo" },
+      "Structured a high-end corporate identity and comprehensive profiling for a premium 7-branch fast-food chain and large infrastructure projects in Tabuk.",
+    before: { label: "Visual System", value: "Standard Outlines" },
+    after: { label: "Corporate Trust", value: "7-Branch Scale" },
     metrics: [
-      { value: "8x – 10x", label: "ROAS" },
-      { value: "< 13%", label: "Ad Spend %" },
-      { value: "3 Months", label: "Growth Period" },
+      { value: "Tabuk Sector", label: "Infrastructure" },
+      { value: "Premium", label: "B2B Positioning" },
+      { value: "100% Cohesive", label: "Brand Presence" },
     ],
   },
 ];
@@ -88,7 +89,6 @@ export default function CaseStudies() {
         {/* ── Header ── */}
         <div className={styles.header}>
           <div className={styles.badge}>
-            {/* الأيقونة الدائرية المحدثة للأزرق المطور #295f99 عبر الـ CSS */}
             <i>
               <Trophy size={14} />
             </i>
@@ -146,7 +146,6 @@ export default function CaseStudies() {
                       <span className={styles.compValue}>{c.before.value}</span>
                     </div>
                     
-                    {/* السهم الحركي الدائري المطور للأزرق والنبض الجمالي */}
                     <div className={styles.arrow}>
                       <ArrowRight size={18} />
                     </div>
@@ -170,6 +169,36 @@ export default function CaseStudies() {
 
               </article>
             ))}
+
+            {/* ── الزر الموحد في الشاشة مضاف بـ Style داخلي مباشر دون تغيير الـ CSS القديم ── */}
+           <div style={{ marginTop: "2.5rem", display: "flex", justifyContent: "flex-start" }}>
+  <Link 
+    to="/portfolio" 
+    className="btn rounded-pill px-4 py-2 text-uppercase fw-semibold" 
+    style={{ 
+      letterSpacing: "0.08em", 
+      fontSize: "0.85rem",
+      color: "#ffffff",
+      background: "linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%)", /* مأخوذ من --secondary */
+      border: "1px solid rgba(255, 255, 255, 0.1)",
+      boxShadow: "0 4px 15px rgba(41, 95, 153, 0.2)",
+      transition: "all 0.3s ease"
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.background = "linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%)"; /* مأخوذ من --secondaryHover */
+      e.currentTarget.style.transform = "translateY(-2px)";
+      e.currentTarget.style.boxShadow = "0 8px 20px rgba(41, 95, 153, 0.4)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.background = "linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%)";
+      e.currentTarget.style.transform = "translateY(0)";
+      e.currentTarget.style.boxShadow = "0 4px 15px rgba(41, 95, 153, 0.2)";
+    }}
+  >
+    See All Work
+  </Link>
+</div>
+
           </div>
         </div>
       </div>

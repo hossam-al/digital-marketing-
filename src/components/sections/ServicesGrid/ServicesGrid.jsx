@@ -25,6 +25,7 @@ export function ServicesGrid() {
             funnels.
           </p>
         </div>
+        
 
         <div className={styles.featureGrid}>
           {/* Card 1 */}

@@ -7,49 +7,49 @@ const FRAME_BASE = "/frames/ezgif-frame-";
 const STEPS = [
   {
     number: "1",
-    title: "Discovery & Research",
+    title: "Analysis & Research",
     description:
-      "We start by understanding your business, goals, and audience. This step ensures that every decision we make is data-driven and aligned with your vision.",
+      "We begin by deep-diving into your business, reading your specific market gaps, and mapping out your exact target audience segments.",
     startFrame: 1,
     endFrame: 50,
   },
   {
     number: "2",
-    title: "Planning & Strategy",
+    title: "Positioning & Messaging",
     description:
-      "Our team develops a clear roadmap and strategy tailored to your needs, defining milestones, timelines, and key deliverables.",
+      "We craft a clear positioning statement and core messaging matrix, shaping a credible brand promise that sets you apart from competitors.",
     startFrame: 51,
     endFrame: 100,
   },
   {
     number: "3",
-    title: "Design & Development",
+    title: "System & Architecture",
     description:
-      "Creative ideas come to life through our design and development phase. We focus on user experience, functionality, and aesthetics.",
+      "Our team designs the complete growth architecture, connecting your structured content pillars to targeted advertising funnels and web paths.",
     startFrame: 101,
     endFrame: 150,
   },
   {
     number: "4",
-    title: "Testing & Quality Assurance",
+    title: "Structured Execution",
     description:
-      "Every project undergoes rigorous testing to guarantee flawless performance and high-quality results.",
+      "We launch performance-driven media campaigns, deploy responsive landing sequences, and implement automated qualification support on WhatsApp.",
     startFrame: 151,
     endFrame: 199,
   },
   {
     number: "5",
-    title: "Launch & Optimization",
+    title: "Review & Insights",
     description:
-      "We launch your project with confidence and continuously monitor, analyze, and optimize to achieve the best outcomes.",
+      "We analyze raw performance numbers to measure result quality, translating weekly data patterns into actionable insights for future growth.",
     startFrame: 200,
     endFrame: 248,
   },
   {
     number: "6",
-    title: "Support & Growth",
+    title: "Optimization & Scaling",
     description:
-      "Post-launch, we provide ongoing support and insights to help your business grow and adapt to changing needs.",
+      "We continuously adjust and optimize based on real performance memory, scaling budgets safely to maximize your market traction.",
     startFrame: 249,
     endFrame: 297,
   },
@@ -126,13 +126,13 @@ export default function OurProcess() {
         {!loaded && (
           <div className={styles.loading}>
             <div className={styles.spinner} />
-            <span>Loading...</span>
+            <span>Loading System Engine...</span>
           </div>
         )}
 
         <img
           src={`${FRAME_BASE}${pad(currentFrame)}.png`}
-          alt="Our Process"
+          alt="EGO STUDIO Process System"
           className={styles.frame}
           style={{ opacity: loaded ? 1 : 0 }}
         />
@@ -165,9 +165,10 @@ export default function OurProcess() {
           ))}
         </div>
 
+        {/* scroll hint */}
         {activeStep === 0 && loaded && (
           <div className={styles.scrollHint}>
-            <span>Scroll to explore</span>
+            <span>Scroll to view system layers</span>
             <i className="fas fa-chevron-down" />
           </div>
         )}

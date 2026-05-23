@@ -8,6 +8,7 @@ import { StatsCounter } from "../../components/sections/StatsCounter/StatsCounte
 import Testimonials from "../../components/sections/Testimonials/Testimonials";
 import FAQSection from "../../components/sections/FAQSection/FAQSection";
 import styles from "./Services.module.css";
+import TeamCraftImg from "../../assets/AboutUS2.png";
 
 function ServicesPage() {
   React.useEffect(() => {
@@ -24,26 +25,41 @@ function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className={`position-relative overflow-hidden ${styles.heroSection}`}>
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-10">
-              <Reveal>
-                <p className={`mb-3 text-uppercase ${styles.eyebrow}`}>What we do</p>
-                <h1 className={`display-1 fw-normal ${styles.fontDisplay}`}>
-                  Full-service.
-                  <br />
-                  Senior craft.
-                </h1>
-                <p className="mt-4 text-muted fs-5 max-w-600">
-                  Six disciplines, one team. We bring strategy and execution under the same roof — so
-                  the work is connected, the speed is real, and the results are measurable.
-                </p>
-              </Reveal>
+     <section className={`position-relative overflow-hidden ${styles.heroSection}`}>
+      <div className="container">
+        <div className="row align-items-center gy-5"> 
+          {/* تم إضافة align-items-center لضبط المحاذاة عمودياً، و gy-5 للمسافات في الشاشات الصغيرة */}
+          
+          {/* الجانب الأيمن: المحتوى النصي */}
+          <div className="col-lg-6">
+            <Reveal>
+              <p className={`mb-3 text-uppercase ${styles.eyebrow}`}>What we do</p>
+              <h1 className={`display-1 fw-normal ${styles.fontDisplay}`}>
+                Full-service.
+                <br />
+                Senior craft.
+              </h1>
+              <p className="mt-4 text-muted fs-5 max-w-600">
+                Six disciplines, one team. We bring strategy and execution under the same roof — so
+                the work is connected, the speed is real, and the results are measurable.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* الجانب الأيسر: الصورة الجديدة */}
+          <div className="col-lg-6 d-flex align-items-center justify-content-center">
+            <div className={styles.cardimgs}>
+              <img 
+                src={TeamCraftImg} 
+                alt="Senior craft team working together on strategy and execution" 
+                className={styles.aboutImg} 
+              />
             </div>
           </div>
+
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* All 14 Services */}
       <ServicesDetail />

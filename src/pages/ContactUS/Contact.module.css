@@ -1,28 +1,100 @@
 .heroSection {
+  position: relative;
   padding-top: 10rem;
-  padding-bottom: 4rem;
-  background: var(--gradient-hero);
+  padding-bottom: 5rem;
+
+  background: var(--gradient-hero, #0b0f17);
   color: #ffffff;
+  overflow: hidden;
 }
 
+/* Responsive spacing */
 @media (min-width: 768px) {
   .heroSection {
     padding-top: 12rem;
-    padding-bottom: 6rem;
+    padding-bottom: 7rem;
   }
 }
 
+/* Background glow */
+.heroSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 25% 30%, rgba(245, 158, 11, 0.08), transparent 60%),
+    radial-gradient(circle at 75% 70%, rgba(66, 139, 242, 0.06), transparent 55%);
+  z-index: 0;
+}
+
+.heroSection > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Eyebrow label */
 .eyebrow {
   font-size: 0.75rem;
   letter-spacing: 0.3em;
   color: #f59e0b;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+
+  padding-left: 12px;
+  margin-bottom: 1rem;
 }
 
+/* vertical line */
+.eyebrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 12px;
+  background: #f59e0b;
+  border-radius: 2px;
+}
+
+/* Heading */
 .fontDisplay {
   font-family: var(--font-display, serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
   line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #ffffff;
 }
 
-:global(.max-w-500) {
+/* Paragraph width control */
+.max-w-500 {
   max-width: 500px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Image styling */
+.heroSection img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  display: block;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(245, 158, 11, 0.05);
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.heroSection img:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(66, 139, 242, 0.08);
 }

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Reveal } from "@/components/sections/Reveal/Reveal";
 import { ContactSection } from "@/components/sections/ContactSection/ContactSection";
 import styles from "./Contact.module.css";
+import { Building2 } from "lucide-react";
+import ContactImg from "../../assets/Contact-us.png";
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
@@ -29,7 +31,7 @@ function ContactPage() {
       <section className={`position-relative overflow-hidden ${styles.heroSection}`}>
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-10">
+            <div className="col-lg-6">
               <Reveal>
                 <p className={`mb-3 text-uppercase ${styles.eyebrow}`}>Get in touch</p>
                 <h1 className={`display-1 fw-normal ${styles.fontDisplay}`}>
@@ -42,6 +44,9 @@ function ContactPage() {
                   day.
                 </p>
               </Reveal>
+            </div>
+            <div className="col-lg-6">
+              <img src={ContactImg} alt="Contact" className="img-fluid" />
             </div>
           </div>
         </div>

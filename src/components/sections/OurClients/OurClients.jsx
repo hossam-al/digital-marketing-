@@ -2,19 +2,28 @@ import styles from "./OurClients.module.css";
 
 import { Building2 } from "lucide-react";
 
-import logo1 from "@/assets/loooo1.webp";
-import logo2 from "@/assets/loooo2.webp";
-import logo3 from "@/assets/loooo3.webp";
-import logo4 from "@/assets/loooo4.webp";
-import logo5 from "@/assets/loooo5.webp";
+import logo1 from "@/assets/loooo1.webp"; // Integrated Growth System
+import logo2 from "@/assets/loooo2.webp"; // Nibras 360
+import logo3 from "@/assets/loooo3.webp"; // Belt & Road Trading
+import logo4 from "@/assets/loooo4.webp"; // Panda Host
+import logo5 from "@/assets/loooo5.webp"; // Al Aswar Al Sameda
 
 const logoSources = [logo1, logo2, logo3, logo4, logo5];
+
+// أسماء حقيقية للبراندات والعملاء الموثقين داخل ملفاتك لرفع دقة الـ SEO والـ Accessibility
+const clientNames = [
+  "Integrated Growth System",
+  "Nibras 360",
+  "Belt & Road Trading",
+  "Panda Host",
+  "Al Aswar Al Sameda"
+];
 
 const LOGO_COUNT = 20;
 
 const LOGOS = Array.from({ length: LOGO_COUNT }, (_, i) => ({
   src: logoSources[i % logoSources.length],
-  alt: `Client Logo ${i + 1}`,
+  alt: `${clientNames[i % clientNames.length]} - EGO STUDIO Client`,
 }));
 
 function MarqueeRow({ reverse = false }) {
@@ -50,12 +59,12 @@ export default function OurClients() {
 
           <h2 className={styles.heading}>
             Brands That{" "}
-            <span className={styles.highlight}>Believein Our Work</span>
+            <span className={styles.highlight}>Believe in Our Work</span>
           </h2>
 
           <p className={styles.subheading}>
-            At Aero Marketing, every client is a partner in success, driven by
-            trust and real results.
+            At EGO STUDIO, we build trusted partnerships across diverse commercial 
+            sectors, transforming collaboration into trackable market expansion.
           </p>
         </div>
 
