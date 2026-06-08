@@ -49,31 +49,35 @@
 
 /* Badge */
 .badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: oklch(0.78 0.14 70 / 0.1);
-  border: 1px solid oklch(0.78 0.14 70 / 0.25);
-  border-radius: 100px;
-  padding: 6px 16px 6px 8px;
-  margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 19px;
+    border-radius: 999px;
+    border-top: 1px solid var(--primary);
+    background: oklch(1 0 0 / 0.06);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 -3px 10px oklch(0.78 0.14 70 / 0.2), 0 4px 14px oklch(0 0 0 / 0.4);
+    margin-bottom: 28px;
 }
 
 .badgeIcon {
-  width: 28px;
+  width: 30px;
   height: 28px;
-  background: linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%) !important;
+  background: var(--secondary) !important;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 0 12px rgba(41, 95, 153, 0.5); /* هالة زرقاء ناعمة */
+  box-shadow: 0 0 12px rgba(41, 95, 153, 0.5); 
+  color: #fafafa !important;
+
 }
 
 .badgeIcon i,
 .badgeIcon svg {
-  color: #ffffff !important;
+  color: #fafafa !important;
 }
 
 .badgeText {
@@ -223,20 +227,18 @@
   font-family: var(--font-display);
 }
 
-/* ─── Chevron (تلوين سهم التحكم حركياً) ───────────────────── */
 .chevron {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
-  color: rgba(41, 95, 153, 0.7); /* السهم يأخذ لون الأزرق المطور افتراضياً */
+  color:#fafafa; 
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               color 0.3s ease;
 }
 
-/* تفتيح تشبع سهم الـ Chevron للميكس المضيء الكهربائي عند فتح البطاقة */
 .faqItem.open .chevron {
   transform: rotate(180deg);
-  color: #428bf2 !important; /* الأزرق المضيء الذكي الخاص بالـ Hover الفروي */
+  color: #fafafa !important; 
 }
 
 /* ─── Answer ──────────────────────────────────────────────── */

@@ -83,7 +83,7 @@
   line-height: 1.15;
 }
 .highlight {
-  color: #295f99;
+  color: var(--secondary) !important;
 
   position: relative;
 
@@ -108,7 +108,7 @@
     linear-gradient(
       90deg,
       transparent,
-      #295f99,
+      var(--secondary) ,
       transparent
     );
 
@@ -200,7 +200,7 @@
 .logoWrap:hover {
   background: oklch(1 0 0 / .08);
 
-  border-color: #295f99;
+  border-color: var(--secondaryHover);
 
   box-shadow:
     0 0 20px

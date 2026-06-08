@@ -179,18 +179,18 @@ export default function CaseStudies() {
       letterSpacing: "0.08em", 
       fontSize: "0.85rem",
       color: "#ffffff",
-      background: "linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%)", /* مأخوذ من --secondary */
+      background: "#0081d0", /* مأخوذ من --secondary */
       border: "1px solid rgba(255, 255, 255, 0.1)",
       boxShadow: "0 4px 15px rgba(41, 95, 153, 0.2)",
       transition: "all 0.3s ease"
     }}
     onMouseEnter={(e) => {
-      e.currentTarget.style.background = "linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%)"; /* مأخوذ من --secondaryHover */
+      e.currentTarget.style.background = "#1a96e6"; /* مأخوذ من --secondaryHover */
       e.currentTarget.style.transform = "translateY(-2px)";
       e.currentTarget.style.boxShadow = "0 8px 20px rgba(41, 95, 153, 0.4)";
     }}
     onMouseLeave={(e) => {
-      e.currentTarget.style.background = "linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%)";
+      e.currentTarget.style.background = "#1a96e6";
       e.currentTarget.style.transform = "translateY(0)";
       e.currentTarget.style.boxShadow = "0 4px 15px rgba(41, 95, 153, 0.2)";
     }}

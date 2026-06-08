@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./OurProcess.module.css";
 
-const TOTAL_FRAMES = 297;
+const TOTAL_FRAMES = 300;
 const FRAME_BASE = "/frames/ezgif-frame-";
 
 const STEPS = [

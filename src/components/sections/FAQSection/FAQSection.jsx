@@ -65,7 +65,7 @@ const QuestionMarkIcon = () => (
     height="14"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="var(--primary, #ffc107)" /* جعل اللون يقرأ المتغير الأساسي للبراند تلقائياً */
+    stroke="#fafafa" /* جعل اللون يقرأ المتغير الأساسي للبراند تلقائياً */
     strokeWidth="2.5"
     strokeLinecap="round"
     strokeLinejoin="round"

@@ -1,35 +1,36 @@
 import { useRef } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { FaCheckCircle } from "react-icons/fa";
+
 import { Link } from "react-router-dom"; // استيراد الـ Link للتنقل بين الصفحات
 import styles from "./ScrollSection.module.css";
 import work1 from "@/assets/SE1.png";
-import work2 from "@/assets/SE2.png";
 import work3 from "@/assets/SE3.png";
 import work4 from "@/assets/SE4.png";
 import work5 from "@/assets/SE5.png";
 import work6 from "@/assets/SE6.png";
+import work2 from "@/assets/Services2.png"; 
 
 // ─── Data (6 Core Main Panels for Home Page) ──────────────────────────
 const SERVICES = [
   {
     number: "1",
-    title: "Marketing & Growth",
+    title: "Marketing Growth",
     accent: "Strategy",
     subtitle: "Brand Positioning & Market Analysis",
     description:
       "We define the overall marketing direction, analyze market gaps, and craft core messaging matrices to turn your business presence into a measurable acquisition system.",
     features: [
-      "Market & Competitor Analysis",
+      "Market Competitor Analysis",
       "Brand Positioning Statements",
       "Channel Recommendations",
     ],
     image: work1,
-    imageAlt: "Marketing & Growth Strategy",
+    imageAlt: "Marketing Growth Strategy",
     panelClass: styles.panel1,
   },
   {
     number: "2",
-    title: "Content Strategy &",
+    title: "Content Strategy ",
     accent: "Creative Direction",
     subtitle: "Persuasive Copywriting & Storytelling",
     description:
@@ -40,12 +41,12 @@ const SERVICES = [
       "Social Media Copywriting",
     ],
     image: work2,
-    imageAlt: "Content Strategy & Copywriting",
+    imageAlt: "Content Strategy Copywriting",
     panelClass: styles.panel2,
   },
   {
     number: "3",
-    title: "Meta Ads & Campaign",
+    title: "Meta Ads  Campaign",
     accent: "Optimization",
     subtitle: "Performance Media Buying",
     description:
@@ -61,7 +62,7 @@ const SERVICES = [
   },
   {
     number: "4",
-    title: "Conversion Paths &",
+    title: "Conversion Paths ",
     accent: "Customer Journeys",
     subtitle: "Optimizing Touchpoints & Funnels",
     description:
@@ -77,7 +78,7 @@ const SERVICES = [
   },
   {
     number: "5",
-    title: "WhatsApp & Sales",
+    title: "WhatsApp  Sales",
     accent: "Communication",
     subtitle: "Lead Qualification & Closing Support",
     description:
@@ -93,7 +94,7 @@ const SERVICES = [
   },
   {
     number: "6",
-    title: "Web Dev & Interface",
+    title: "Web Dev Interface",
     accent: "UI/UX",
     subtitle: "High-Converting Digital Products",
     description:
@@ -104,7 +105,7 @@ const SERVICES = [
       "Funnels & Form Integrations",
     ],
     image: work1,
-    imageAlt: "Web Development & UI/UX",
+    imageAlt: "Web Development  UI/UX",
     panelClass: styles.panel1,
   },
 ];
@@ -125,11 +126,13 @@ export default function ScrollSection() {
           <div className={styles.inner}>
             {/* ── Left: text content ── */}
             <div className={styles.content}>
-              <h1 className={styles.title}>
-                <span className={styles.serviceNumber}>{service.number}</span>
-                {service.title}{" "}
-                <span className={styles.titleAccent}>{service.accent}</span>
-              </h1>
+          <h1 className={styles.title}>
+  <span className={styles.serviceNumber}>{service.number}</span>
+  {service.title}
+  <br />
+  <span className={styles.ampersand}>&</span>{" "}
+  <span className={styles.titleAccent}>{service.accent}</span>
+</h1>
 
               <span className={styles.subtitle}>{service.subtitle}</span>
 
@@ -140,7 +143,7 @@ export default function ScrollSection() {
               <ul className={styles.features}>
                 {service.features.map((feat) => (
                   <li key={feat} className={styles.featureItem}>
-                    <CheckCircle2 className={styles.checkIcon} size={18} />
+                    <FaCheckCircle className={styles.checkIcon} size={18} />
                     <span>{feat}</span>
                   </li>
                 ))}

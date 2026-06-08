@@ -84,7 +84,8 @@
   pointer-events: none;
   position: absolute;
   z-index: 5;
-  right: 4%;
+  right: 6%;
+  padding: 50px ;
   bottom: 9%;
   width: 32vw;
   max-width: 500px;
@@ -93,9 +94,10 @@
 
 /* تحكم Mascot 2 اليسار (للسلايد الثاني) */
 .mascotLeft {
-  left: 4% !important;   
+  left: 6% !important;   
   right: auto !important;
-  bottom: 0% !important;
+  bottom: 11% !important;
+  
 }
 
 /* منطقة المحتوى والنصوص الكبرى */
@@ -213,7 +215,7 @@
   border-radius: 50px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  background: linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%) ;
+  background: var(--secondary) !important;
   border: 1px solid var(--border);
   color: var(--foreground) !important;
   text-decoration: none;
@@ -222,7 +224,7 @@
 
 /* التوظيف الممتاز للون الأزرق عند الـ Hover */
 .ctaSecondary:hover {
-  background: linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%);
+  background: var(--secondaryHover) !important;
   /* إضافة توهج خلفي ناعم بنفس الدرجة ليعطي إيحاء بأن العنصر يضيء */
   box-shadow: 0 15px 35px rgba(43, 110, 194, 0.4);
 }

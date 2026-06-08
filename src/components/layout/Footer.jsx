@@ -21,7 +21,7 @@ function Footer() {
             </div>
 
             <p className={styles.headline}>
-              We build digital experiences people remember —
+              We build digital experiences people remember & <br /> 
               <span> and brands grow from.</span>
             </p>
 

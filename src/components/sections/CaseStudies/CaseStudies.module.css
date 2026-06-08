@@ -166,12 +166,7 @@
   inset: -1px;
   border-radius: 14px;
   padding: 1px;
-  background: linear-gradient(
-    110deg,
-    transparent 20%,
-    rgba(41, 95, 153, 0.45) 50%, /* إدخال اللون الأزرق المطور */
-    transparent 80%
-  );
+  background: var(--secondary) !important; /* توهج أزرق ناعم حول الكارت */
  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); /* 👈 أضف هذا السطر هنا */
   
@@ -301,7 +296,7 @@
 .arrow {
   width: 44px;
   height: 44px;
-  background: linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%) !important; /* تحويل السهم الدائري للون الأزرق */
+  background: var(--secondary) !important; /* تحويل السهم الدائري للون الأزرق */
   border-radius: 50%;
   display: flex;
   align-items: center;

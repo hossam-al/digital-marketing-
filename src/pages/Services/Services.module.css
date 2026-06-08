@@ -4,6 +4,179 @@
   background: linear-gradient(180deg, #121212 0%, #080808 100%);
   color: #ffffff;
 }
+/* ════════════════════════════════════════
+   HERO SECTION (PREMIUM LAYERED)
+════════════════════════════════════════ */
+
+.heroSection {
+  position: relative;
+
+  padding-top: 10rem;
+  padding-bottom: 4rem;
+
+  background: var(--background);
+
+  overflow: hidden;
+
+  color: var(--foreground);
+}
+
+/* soft gold + blue ambient glow */
+.heroSection::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 20% 25%, rgba(255, 166, 72, 0.12), transparent 45%),
+    radial-gradient(circle at 80% 60%, rgba(0, 129, 208, 0.12), transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(255, 193, 7, 0.06), transparent 60%);
+
+  z-index: 0;
+}
+
+/* floating cinematic layer */
+.heroSection::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -30%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255, 166, 72, 0.10), transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(41, 95, 153, 0.14), transparent 45%);
+
+  filter: blur(100px);
+
+  opacity: 0.8;
+
+  animation: heroFloat 14s ease-in-out infinite alternate;
+}
+
+@keyframes heroFloat {
+  0% {
+    transform: translate(-2%, -2%) scale(1);
+  }
+
+  100% {
+    transform: translate(3%, 2%) scale(1.08);
+  }
+}
+
+/* spacing */
+@media (min-width: 768px) {
+  .heroSection {
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* ════════════════════════════════════════
+   TEXT STYLING
+════════════════════════════════════════ */
+
+.eyebrow {
+  font-size: 0.8rem;
+
+  letter-spacing: 0.35em;
+
+  text-transform: uppercase;
+
+  color: var(--primary);
+
+  position: relative;
+}
+
+.fontDisplay {
+  font-family: var(--font-display, serif);
+
+  line-height: 1.05;
+
+  background: linear-gradient(
+    135deg,
+    var(--foreground),
+    rgba(255, 166, 72, 0.85)
+  );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  color: transparent;
+}
+
+/* paragraph */
+:global(.max-w-600) {
+  max-width: 600px;
+}
+
+/* ════════════════════════════════════════
+   IMAGE CARD (premium glass style)
+════════════════════════════════════════ */
+
+.cardimgs {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 550px;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.03),
+      rgba(255, 255, 255, 0.01)
+    );
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55);
+
+  backdrop-filter: blur(14px);
+
+  transition: all 0.4s ease;
+}
+
+.cardimgs:hover {
+  transform: translateY(-6px) scale(1.01);
+
+  border-color: rgba(255, 166, 72, 0.25);
+
+  box-shadow:
+    0 40px 100px rgba(255, 166, 72, 0.08),
+    0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* image */
+.aboutImg {
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+  object-fit: cover;
+
+  transform: scale(1.02);
+
+  transition: transform 0.6s ease;
+}
+
+.cardimgs:hover .aboutImg {
+  transform: scale(1.06);
+}
 
 @media (min-width: 768px) {
   .heroSection {

@@ -62,7 +62,7 @@
 
 /* Contact button */
 .contactBtn {
-  background: linear-gradient(135deg, #2b6ec2, #174b91);
+  background: var(--secondary);
   color: #ffffff;
 }
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { HeroScrollLock } from '@/components/sections/HeroScrollLock/HeroScrollLock';
 import {AboutUs} from '../components/sections/AboutUS/AboutUS';
-import { TrustedClients } from '../components/sections/TrustedClients/TrustedClients';
 import { StatsCounter } from '../components/sections/StatsCounter/StatsCounter';
 import { ServicesGrid } from '../components/sections/ServicesGrid/ServicesGrid';
 import  ScrollSection  from '../components/sections/ScrollSection/ScrollSection';
@@ -16,7 +15,6 @@ const Home = () => {
   return (
     <>
     <HeroScrollLock />
-    <TrustedClients />
     <AboutUs/>
     <StatsCounter />
     <ServicesGrid />

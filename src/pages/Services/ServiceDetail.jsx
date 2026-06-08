@@ -219,7 +219,6 @@ function ServiceModal({ service, onClose }) {
           <ul className={styles.whenList}>
             {service.when.map((item) => (
               <li key={item} className={styles.whenItem}>
-                <ArrowRight size={13} className={styles.whenArrow} />
                 {item}
               </li>
             ))}

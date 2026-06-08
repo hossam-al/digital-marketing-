@@ -38,7 +38,7 @@ export default function WhyChoose() {
 
           <div className={styles.badge}>
             {/* ربط لون الأيقونة مباشرة بالمتغيرات المضيئة لتطابق التصميم */}
-            <Sparkles size={16} style={{ color: "var(--primary)" }} />
+            <Sparkles size={22} style={{ color: "var(--primary)" }} />
             <span>Why Choose Us</span>
           </div>
 

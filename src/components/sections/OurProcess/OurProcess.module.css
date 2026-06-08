@@ -114,10 +114,10 @@
 
 .dotDone {
   background:
-    rgba(41,95,153,.45);
+   var(--secondary);
 
   border-color:
-    rgba(41,95,153,.3);
+var(--secondaryHover)
 }
 
 /* ─── Step card ─────────────────────────────────────────────── */
@@ -220,7 +220,7 @@
 }
 
 .stepTitle span {
-  color: #295f99 !important;
+  color: var(--secondaryHover) !important;
 
   text-shadow:
   0 15px 35px rgba(43, 110, 194, 0.4);

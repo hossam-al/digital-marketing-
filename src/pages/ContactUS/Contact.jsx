@@ -30,7 +30,7 @@ function ContactPage() {
       {/* Hero Section */}
       <section className={`position-relative overflow-hidden ${styles.heroSection}`}>
         <div className="container">
-          <div className="row justify-content-center">
+          <div className="row justify-content-center p-5">
             <div className="col-lg-6">
               <Reveal>
                 <p className={`mb-3 text-uppercase ${styles.eyebrow}`}>Get in touch</p>

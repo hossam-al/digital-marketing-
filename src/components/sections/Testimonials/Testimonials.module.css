@@ -29,7 +29,7 @@
 
 .titIcon {
   font-size: 14px;
-  color: #295f99 !important;
+  color: var(--secondary) !important;
   opacity: 0.9;
 }
 
@@ -125,7 +125,7 @@
 
 .quoteIcon {
   font-size: 22px;
-  color: #295f99 !important;
+  color: var(--secondary) !important;
   margin-bottom: 14px;
   display: block;
   position: relative;
@@ -193,7 +193,7 @@
   flex-shrink: 0;
   border-radius: 50%;
   border: 1px solid rgba(41, 95, 153, 0.35);
-  background: linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%);
+  background: var(--secondary) !important;
   color: #ffffff;
   cursor: pointer;
   display: flex;
@@ -204,8 +204,8 @@
 }
 
 .arrow:hover {
-  background: linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%);
-  border-color: #428bf2;
+  background: var(--secondaryHover) !important;
+  border-color: var(--secondaryHover) !important;
   box-shadow: 0 12px 28px rgba(43, 110, 194, 0.4);
   transform: translateY(-2px);
 }

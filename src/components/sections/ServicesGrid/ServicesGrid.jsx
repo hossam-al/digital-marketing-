@@ -1,7 +1,7 @@
 import styles from "./ServicesGrid.module.css";
-import vid1 from "@/assets/VID1.mp4";
-import vid2 from "@/assets/0516(4).mp4";
-import vid3 from "@/assets/VID2.mp4";
+import vid1 from "../../../assets/vid1.mp4";
+import vid2 from "../../../assets/vid2.mp4";
+import vid3 from "../../../assets/vid3.mp4";
 import { Flame, ChartLine, BarChart3, Rocket } from "lucide-react";
 
 export function ServicesGrid() {

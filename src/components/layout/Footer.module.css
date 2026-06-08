@@ -1,6 +1,5 @@
 .footer {
-  --secondary: linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%);
-  --secondaryHover: linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%);
+ 
 
   background: #1a1204;
   color: #e8d5b0;
@@ -33,11 +32,11 @@
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 1.2;
-  color: #f0ddb0;
+  color: var(--primary);
 }
 
 .headline span {
-  color: #ffc43d;
+  color: var(--secondary) !important;
 }
 
 .btnStart {
@@ -100,7 +99,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #ffc43d;
+  background:var(--primary) !important;
   color: #ffffff;
   flex-shrink: 0;
   transition: background 0.25s ease;

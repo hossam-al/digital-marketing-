@@ -1,5 +1,10 @@
 /* قم بوضع هذا الكود في ملف css عالمي مثل global.css أو main.css */
-
+body {
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 166, 72, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(0, 129, 208, 0.10), transparent 45%),
+    var(--background);
+}
 :root {
   --radius: 0.75rem;
 
@@ -18,11 +23,10 @@
   --popover-foreground: #f8f9fa;
 
   /* Primary / Accent (الذهبي الرمادي المضيء المأخوذ من صورتك) */
-  --primary: #ffc107;              /* اللون الذهبي/الأصفر الدافئ */
+  --primary: #ffa648;              /* اللون الذهبي/الأصفر الدافئ */
   --primary-foreground: #121416;   /* لون النص فوق الذهبي (داكن للقراءة) */
   --primary-glow: #ffe082;         /* توهج ذهبي فاتح */
-
-  --secondary: #2b3035;            /* رمادي داكن لبوتستراب */
+           /* رمادي داكن لبوتستراب */
   --secondary-foreground: #f8f9fa;
 
   --accent: #ffc107;
@@ -44,8 +48,10 @@
 --blue-brand: #295f99;
   
   /* أو يمكنك استبداله باللون المساعد لبوتستراب وموقعك */
-  --secondaryHover: linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%);
-  --secondary: linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%);
+
+  --secondary: #0081d0;
+  --secondaryHover: #1a96e6;
+
   --secondary-foreground: #fafafa;
   
   /* يمكنك استخدامه أيضاً لعمل هالة مضيئة زرقاء ناعمة في الخلفية (اختياري) */
@@ -66,4 +72,42 @@
 /* Override Bootstrap text-muted — الخلفية داكنة فاللون الافتراضي مش واضح */
 .text-muted {
   color: rgba(255, 255, 255, 0.60) !important;
+}
+/* تعريف وزن الـ Light (300) للنصوص الوصفية */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* تعريف وزن الـ Regular (400) للكتابة العادية */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* تعريف وزن الـ SemiBold (600) للأزرار والنصوص المتوسطة */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* تعريف وزن الـ Bold (700) أو ExtraBold (800) للعناوين الضخمة */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
 }

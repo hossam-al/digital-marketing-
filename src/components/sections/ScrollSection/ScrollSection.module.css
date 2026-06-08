@@ -22,33 +22,89 @@
 }
 
 /* ─── Per-slide backgrounds ─────────────────────────────────── */
-.panel1 { background: var(--background); }
-.panel2 { background: var(--background) no-repeat center center / cover; }
-.panel3 { background: var(--surface); }
-.panel4 { background: var(--background) no-repeat center center / cover; }
-.panel5 { background: var(--surface); }
-.panel6 { background: var(--background) no-repeat center center / cover; }
+/* ─── Per-slide backgrounds ─────────────────────────────────── */
+.panel1 {
+  background: var(--background);
+}
+.panel1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(255, 166, 72, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 80%, rgba(0, 129, 208, 0.10) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
 
-/* subtle gold glow on dark panels */
-.panel1::before,
-.panel3::before,
+.panel2 {
+  background: var(--background);
+}
+.panel2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(0, 129, 208, 0.13) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 75%, rgba(255, 166, 72, 0.10) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.panel3 {
+  background: var(--surface);
+}
+.panel3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 75% 30%, rgba(255, 166, 72, 0.13) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 70%, rgba(0, 129, 208, 0.10) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.panel4 {
+  background: var(--background);
+}
+.panel4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 10% 30%, rgba(255, 166, 72, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(0, 129, 208, 0.12) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.panel5 {
+  background: var(--surface);
+}
 .panel5::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 20%, oklch(0.3 0.08 65 / 0.35), transparent 60%);
+  background:
+    radial-gradient(ellipse at 85% 20%, rgba(0, 129, 208, 0.13) 0%, transparent 50%),
+    radial-gradient(ellipse at 15% 75%, rgba(255, 166, 72, 0.10) 0%, transparent 55%);
   pointer-events: none;
+  z-index: 0;
 }
 
-/* dark scrim over bg-image panels so text stays readable */
-.panel2::after,
-.panel4::after,
-.panel6::after {
+.panel6 {
+  background: var(--background);
+}
+.panel6::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: oklch(0.08 0.005 60 / 0.65);
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(255, 166, 72, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(0, 129, 208, 0.12) 0%, transparent 55%);
   pointer-events: none;
+  z-index: 0;
 }
 
 /* ─── Inner layout ──────────────────────────────────────────── */
@@ -57,7 +113,7 @@
   z-index: 1;
   width: 100%;
   max-width: 1200px;
-  padding: 0 60px;
+  padding: 35px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -69,13 +125,15 @@
   width: 50%;
   color: var(--foreground);
   text-align: start;
+  color: #fafafa!important;
+
 }
 
 .serviceNumber {
-  font-size: 64px;
+  font-size: 50px;
   font-weight: 900;
   color: transparent;
-  -webkit-text-stroke: 2px #295f99; /* تحويل الرقم إلى لون أزرق مطور مع تباين واضح */
+  -webkit-text-stroke: 1px var(--foreground); /* تحويل الرقم إلى لون أزرق مطور مع تباين واضح */
   margin-right: 12px;
   display: inline-block;
   line-height: 1;
@@ -83,28 +141,38 @@
 }
 
 .title {
-  font-size: clamp(36px, 5vw, 60px);
+  
+  font-size: 45px;
+  display: inline-block !important;
   font-weight: 700;
   margin: 0 0 12px;
-  color: var(--foreground);
+  color: var(--primary) !important; /* تلوين العنوان الرئيسي باللون الأزرق المطور */
   line-height: 1.1;
   font-family: var(--font-display);
   letter-spacing: -0.03em;
+  text-transform: uppercase;
+font-weight: 600;
+
+
 }
 
 .titleAccent {
-  background: var(--secondaryHover);
+  background: var(--secondary);
   -webkit-background-clip: text;
   background-clip: text;
+  font-family: 'Montserrat', sans-serif;
+font-weight: 600;
   color: transparent;
+
 }
 
 .subtitle {
   display: block;
   font-size: 18px;
   font-weight: 400;
-  color: var(--muted-foreground);
   margin-bottom: 18px;
+  color:#fafafa;
+
 }
 
 .underline {
@@ -114,6 +182,8 @@
   margin: 0 0 24px;
   border-radius: 2px;
   opacity: 0.6;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 .description {
@@ -122,6 +192,17 @@
   color: var(--muted-foreground);
   margin-bottom: 32px;
   max-width: 480px;
+  letter-spacing: 0.02em;
+  text-align: justify;
+  font-family: 'Montserrat', sans-serif;
+
+  color: #fafafa!important;
+
+}
+.ampersand{
+  color: var(--foreground) !important;
+  font-weight: 700;
+  font-size: 40px;
 }
 
 /* ─── Features list ─────────────────────────────────────────── */
@@ -140,23 +221,34 @@
   gap: 12px;
   font-size: 15px;
   color: var(--foreground);
+  
 }
 
 /* الكلاس المطور باللون الأزرق المضيء #295f99 والتوهج الناعم */
 .checkIcon {
-  color: var(--primary) !important; /* تلوين أيقونة العلامة باللون الأزرق المطور */
+  color: var(--primary) !important; 
+
+background:#232323; 
+border-radius: 50%;
   flex-shrink: 0;
-  filter: drop-shadow(0 0 6px rgba(41, 95, 153, 0.6));
+ 
+ 
 }
 
 /* ─── Right image ───────────────────────────────────────────── */
+.imageContainer:hover {
+
+
+  border: 1px solid #ffa648;
+}
 .imageContainer {
   width: 45%;
-  padding: 5px;
-  border: 1px solid var(--primary);
+  border: 0.1px solid #ffa74854;
+
   border-radius: 16px;
   filter: drop-shadow(0 20px 40px oklch(0 0 0 / 0.5));
   transition: all 0.3s ease;
+  
  cursor:pointer;
 
 }
@@ -180,7 +272,8 @@
   border-radius: 50px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  background: linear-gradient(135deg, #2b6ec2 0%, #174b91 50%, #0d2954 100%) ;
+  background: #0081d0
+;
   border: 1px solid var(--border);
   color: var(--foreground) !important;
   text-decoration: none;
@@ -189,7 +282,7 @@
 
 /* التوظيف الممتاز للون الأزرق عند الـ Hover */
 .ctaSecondary:hover {
-  background: linear-gradient(135deg, #428bf2 0%, #2062ba 50%, #11366b 100%);
+  background:  var(--secondaryHover);
   /* إضافة توهج خلفي ناعم بنفس الدرجة ليعطي إيحاء بأن العنصر يضيء */
   box-shadow: 0 15px 35px rgba(43, 110, 194, 0.4);
 }
