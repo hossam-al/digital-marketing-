@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Reveal } from "@/components/sections/Reveal/Reveal";
 import { ContactSection } from "@/components/sections/ContactSection/ContactSection";
 import styles from "./Contact.module.css";
-import ContactImg from "../../assets/Contact-us.png";
+import ContactImg from "../../assets/Contact Icon.png";
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
@@ -25,7 +25,9 @@ function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className={`position-relative overflow-hidden ${styles.heroSection}`}>
+      <section
+        className={`position-relative overflow-hidden ${styles.heroSection}`}
+      >
         <div className="container">
           <div className="row justify-content-center p-5">
             <div className="col-lg-6">
@@ -44,7 +46,11 @@ function ContactPage() {
               </Reveal>
             </div>
             <div className="col-lg-6">
-              <img src={ContactImg} alt={t("contactPage.hero.imageAlt")} className="img-fluid" />
+              <img
+                src={ContactImg}
+                alt={t("contactPage.hero.imageAlt")}
+                className="img-fluid"
+              />
             </div>
           </div>
         </div>

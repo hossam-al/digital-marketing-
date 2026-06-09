@@ -9,7 +9,7 @@ import { StatsCounter } from "../../components/sections/StatsCounter/StatsCounte
 import Testimonials from "../../components/sections/Testimonials/Testimonials";
 import FAQSection from "../../components/sections/FAQSection/FAQSection";
 import styles from "./Services.module.css";
-import TeamCraftImg from "../../assets/AboutUS2.png";
+import TeamCraftImg from "../../assets/What-we-do Icon.png";
 
 function ServicesPage() {
   const { t } = useTranslation();
