@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -16,6 +17,15 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const { i18n } = useTranslation();
+  const currentLanguage = i18n.resolvedLanguage || i18n.language;
+
+  useEffect(() => {
+    const language = currentLanguage === "en" ? "en" : "ar";
+
+    document.documentElement.lang = language;
+    document.documentElement.dir = "ltr";
+  }, [currentLanguage]);
 
   return (
     <>

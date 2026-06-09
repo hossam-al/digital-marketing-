@@ -1,23 +1,26 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Menu, X, Languages } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { SITE } from "../../lib/site";
 import logo from "../../assets/logo.png";
+import LanguageSwitcher from "./LanguageSwitcher";
 import styles from "./Navbar.module.css";
 
 const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/portfolio", label: "Portfolio" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", labelKey: "navbar.home" },
+  { to: "/about", labelKey: "navbar.about" },
+  { to: "/services", labelKey: "navbar.services" },
+  { to: "/portfolio", labelKey: "navbar.portfolio" },
+  { to: "/contact", labelKey: "navbar.contact" },
 ];
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -54,20 +57,17 @@ function Navbar() {
                 to={n.to} 
                 className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
               >
-                {n.label}
+                {t(n.labelKey)}
               </Link>
             );
           })}
         </nav>
 
         <div className={styles.actions}>
-          <button className={styles.langBtn}>
-            <Languages size={16} />
-            <span>EN</span>
-          </button>
+          <LanguageSwitcher className={styles.langBtn} />
 
           <Link to="/contact" className={styles.ctaBtn}>
-            Book Consultation
+            {t("buttons.bookConsultation")}
           </Link>
 
           <button
@@ -99,13 +99,13 @@ function Navbar() {
                     to={n.to}
                     className={`${styles.mobileLink} ${isActive ? styles.mobileLinkActive : ""}`}
                   >
-                    {n.label}
+                    {t(n.labelKey)}
                   </Link>
                 );
               })}
 
               <Link to="/contact" className={styles.mobileCtaBtn}>
-                Book Consultation
+                {t("buttons.bookConsultation")}
               </Link>
             </div>
           </motion.nav>

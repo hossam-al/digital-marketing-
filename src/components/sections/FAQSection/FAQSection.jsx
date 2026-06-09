@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./FAQSection.module.css";
 
 const faqs = [
@@ -44,7 +45,6 @@ const faqs = [
   },
 ];
 
-/* ─── Icons ──────────────────────────────────────────────────── */
 const ChevronIcon = () => (
   <svg
     className={styles.chevron}
@@ -65,7 +65,7 @@ const QuestionMarkIcon = () => (
     height="14"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="#fafafa" /* جعل اللون يقرأ المتغير الأساسي للبراند تلقائياً */
+    stroke="#fafafa"
     strokeWidth="2.5"
     strokeLinecap="round"
     strokeLinejoin="round"
@@ -76,7 +76,6 @@ const QuestionMarkIcon = () => (
   </svg>
 );
 
-/* ─── FAQ Item ────────────────────────────────────────────────── */
 const FAQItem = ({ question, answer, isOpen, onClick }) => (
   <div
     className={`${styles.faqItem} ${isOpen ? styles.open : ""}`}
@@ -93,9 +92,12 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => (
   </div>
 );
 
-/* ─── FAQ Section ─────────────────────────────────────────────── */
-export default function FAQSection() {
+export default function FAQSection({ translationPrefix }) {
   const [openIndex, setOpenIndex] = useState(null);
+  const { t } = useTranslation();
+  const faqItems = translationPrefix
+    ? t(`${translationPrefix}.items`, { returnObjects: true })
+    : faqs;
 
   const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
 
@@ -110,16 +112,19 @@ export default function FAQSection() {
               <div className={styles.badgeIcon}>
                 <QuestionMarkIcon />
               </div>
-              <span className={styles.badgeText}>FAQ</span>
+              <span className={styles.badgeText}>
+                {translationPrefix ? t(`${translationPrefix}.badge`) : "FAQ"}
+              </span>
             </div>
 
             <h2 className={styles.title}>
-              Frequently Asked Questions
+              {translationPrefix ? t(`${translationPrefix}.title`) : "Frequently Asked Questions"}
             </h2>
 
             <p className={styles.description}>
-              Find detailed answers about our integrated growth systems, performance 
-              tracking, and how we deliver measurable commercial outcomes.
+              {translationPrefix
+                ? t(`${translationPrefix}.description`)
+                : "Find detailed answers about our integrated growth systems, performance tracking, and how we deliver measurable commercial outcomes."}
             </p>
 
             <div className={styles.accentLine} />
@@ -127,7 +132,7 @@ export default function FAQSection() {
 
           {/* Right: FAQ Items */}
           <div className={styles.faqList}>
-            {faqs.map((faq, i) => (
+            {faqItems.map((faq, i) => (
               <FAQItem
                 key={i}
                 question={faq.question}

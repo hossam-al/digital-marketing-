@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const NotFound = () => {
+  const { t } = useTranslation();
+
   return (
     <section
       style={{
@@ -43,7 +46,7 @@ const NotFound = () => {
             marginBottom: "1rem",
           }}
         >
-          Page not found
+          {t("notFound.badge")}
         </p>
 
         {/* Heading */}
@@ -56,7 +59,7 @@ const NotFound = () => {
             marginBottom: "1.25rem",
           }}
         >
-          Looks like you got lost.
+          {t("notFound.title")}
         </h1>
 
         {/* Description */}
@@ -69,8 +72,7 @@ const NotFound = () => {
             lineHeight: "1.7",
           }}
         >
-          The page you're looking for doesn't exist or has been moved.
-          Let's get you back on track.
+          {t("notFound.description")}
         </p>
 
         {/* CTA */}
@@ -94,7 +96,7 @@ const NotFound = () => {
           onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
         >
           <ArrowLeft size={16} />
-          Back to Home
+          {t("notFound.button")}
         </Link>
       </div>
     </section>

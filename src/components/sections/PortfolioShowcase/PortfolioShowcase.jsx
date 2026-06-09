@@ -1,12 +1,30 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { PORTFOLIO, PORTFOLIO_CATEGORIES } from "@/lib/content";
 import { Reveal, SectionHeading } from "@/components/sections/Reveal/Reveal";
 import styles from "./PortfolioShowcase.module.css";
 
-// ─── Modal ──────────────────────────────────────────────────────────────────
-function ProjectModal({ project, onClose }) {
+const PROJECT_KEYS = [
+  "nibras",
+  "nurtureNature",
+  "ippo",
+  "packgo",
+  "aquaCool",
+  "beltRoad",
+];
+
+const CATEGORY_KEYS = {
+  All: "all",
+  Branding: "branding",
+  "Identity Guide": "identityGuide",
+  "Social Media": "socialMedia",
+  "Paid Ads": "paidAds",
+  "Company Profiles": "companyProfiles",
+};
+
+function ProjectModal({ project, onClose, labels }) {
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onKey);
@@ -25,21 +43,17 @@ function ProjectModal({ project, onClose }) {
         role="dialog"
         aria-modal="true"
       >
-        {/* Close */}
-        <button className={styles.closeBtn} onClick={onClose} aria-label="Close">
+        <button className={styles.closeBtn} onClick={onClose} aria-label={labels.close}>
           <X size={18} />
         </button>
 
-        {/* Image */}
         <div className={styles.modalImg}>
           <img src={project.image} alt={project.title} />
           <div className={styles.modalImgOverlay} />
-          <span className={styles.modalCategory}>{project.category}</span>
+          <span className={styles.modalCategory}>{project.categoryLabel}</span>
         </div>
 
-        {/* Content */}
         <div className={styles.modalBody}>
-          {/* Meta */}
           <div className={styles.modalMeta}>
             <span className={styles.modalClient}>{project.client}</span>
             <span className={styles.modalYear}>{project.year}</span>
@@ -50,7 +64,6 @@ function ProjectModal({ project, onClose }) {
 
           <div className={styles.modalDivider} />
 
-          {/* Results */}
           {project.results && (
             <div className={styles.resultsRow}>
               {project.results.map((r) => (
@@ -64,10 +77,9 @@ function ProjectModal({ project, onClose }) {
 
           <div className={styles.modalDivider} />
 
-          {/* Services */}
           {project.services && (
             <div>
-              <p className={styles.modalLabel}>What we did</p>
+              <p className={styles.modalLabel}>{labels.whatWeDid}</p>
               <div className={styles.tags}>
                 {project.services.map((s) => (
                   <span key={s} className={styles.tag}>{s}</span>
@@ -81,37 +93,57 @@ function ProjectModal({ project, onClose }) {
   );
 }
 
-// ─── Main ────────────────────────────────────────────────────────────────────
 export function PortfolioShowcase({ limit }) {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState("All");
   const [selected, setSelected] = useState(null);
 
-  const items = PORTFOLIO
-    .filter((p) => filter === "All" || p.category === filter)
+  const translatedProjects = PORTFOLIO.map((project, index) => {
+    const key = PROJECT_KEYS[index];
+    return {
+      ...project,
+      title: t(`portfolioPage.projects.items.${key}.title`),
+      categoryValue: project.category,
+      categoryLabel: t(`portfolioPage.filters.${CATEGORY_KEYS[project.category]}`),
+      category: t(`portfolioPage.filters.${CATEGORY_KEYS[project.category]}`),
+      description: t(`portfolioPage.projects.items.${key}.description`),
+      services: t(`portfolioPage.projects.items.${key}.services`, { returnObjects: true }),
+      results: project.results.map((result, resultIndex) => ({
+        ...result,
+        label: t(`portfolioPage.projects.items.${key}.results.${resultIndex}.label`),
+      })),
+    };
+  });
+
+  const items = translatedProjects
+    .filter((p) => filter === "All" || p.categoryValue === filter)
     .slice(0, limit);
+
+  const modalLabels = {
+    close: t("portfolioPage.projects.modal.close"),
+    whatWeDid: t("portfolioPage.projects.modal.whatWeDid"),
+  };
 
   return (
     <section className={`position-relative ${styles.portfolioSection}`}>
       <div className="container">
         <SectionHeading
-          eyebrow="Selected work"
-          title={<>Recent stories<br />we've helped tell.</>}
+          eyebrow={t("portfolioPage.projects.badge")}
+          title={<>{t("portfolioPage.projects.title")}<br />{t("portfolioPage.projects.titleSecondLine")}</>}
         />
 
-        {/* Filters */}
         <div className="mt-5 d-flex flex-wrap align-items-center justify-content-center gap-2">
-          {PORTFOLIO_CATEGORIES.map((c) => (
+          {PORTFOLIO_CATEGORIES.map((categoryValue) => (
             <button
-              key={c}
-              onClick={() => setFilter(c)}
-              className={`btn rounded-pill text-uppercase ${styles.filterBtn} ${filter === c ? styles.activeFilter : ""}`}
+              key={categoryValue}
+              onClick={() => setFilter(categoryValue)}
+              className={`btn rounded-pill text-uppercase ${styles.filterBtn} ${filter === categoryValue ? styles.activeFilter : ""}`}
             >
-              {c}
+              {t(`portfolioPage.filters.${CATEGORY_KEYS[categoryValue]}`)}
             </button>
           ))}
         </div>
 
-        {/* Grid */}
         <motion.div layout className="mt-5 row g-4">
           <AnimatePresence mode="popLayout">
             {items.map((p, i) => (
@@ -135,7 +167,7 @@ export function PortfolioShowcase({ limit }) {
                       <div className={`position-absolute inset-0 ${styles.cardOverlay}`} />
                       <div className="position-absolute bottom-0 start-0 end-0 d-flex align-items-end justify-content-between p-4">
                         <div>
-                          <p className={`text-uppercase mb-1 ${styles.cardCategory}`}>{p.category}</p>
+                          <p className={`text-uppercase mb-1 ${styles.cardCategory}`}>{p.categoryLabel}</p>
                           <h3 className={`h4 m-0 fw-normal ${styles.fontDisplay}`}>{p.title}</h3>
                         </div>
                         <div className={`d-grid place-items-center rounded-circle flex-shrink-0 ${styles.arrowCircle}`}>
@@ -150,18 +182,22 @@ export function PortfolioShowcase({ limit }) {
           </AnimatePresence>
         </motion.div>
 
-        {/* See all */}
         {limit && (
           <Reveal className="mt-5 text-center">
             <a href="/portfolio" className={`btn rounded-pill text-uppercase ${styles.seeAllBtn}`}>
-              See all work <ArrowUpRight className="ms-1" size={16} />
+              {t("portfolioPage.projects.seeAll")} <ArrowUpRight className="ms-1" size={16} />
             </a>
           </Reveal>
         )}
       </div>
 
-      {/* Modal */}
-      {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
+      {selected && (
+        <ProjectModal
+          project={selected}
+          labels={modalLabels}
+          onClose={() => setSelected(null)}
+        />
+      )}
     </section>
   );
 }

@@ -1,12 +1,13 @@
-import { Trophy, ArrowRight } from "lucide-react"; // استيراد الأيقونات السينمائية المناسبة للمحتوى
-import { Link } from "react-router-dom"; // استيراد الـ Link للتنقل بسلاسة لصفحة البورتفوليو الكلي
+import { Trophy, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import styles from "./CaseStudies.module.css";
 import video from "@/assets/V1.mp4";
 import logo1 from "@/assets/loooo1.webp";
 import logo2 from "@/assets/loooo2.webp";
 import logo3 from "@/assets/loooo3.webp";
 import logo4 from "@/assets/loooo4.webp";
-import logo5 from "@/assets/loooo5.webp"; // يمكنك استخدام اللوجو المتوفر للشركة الخامسة
+import logo5 from "@/assets/loooo5.webp";
 
 const CASES = [
   {
@@ -26,7 +27,7 @@ const CASES = [
   {
     id: 2,
     company: "NIBRAS 360",
-    logo: logo2, 
+    logo: logo2,
     description:
       "Developed a precise visual identity and structured a cohesive brand positioning statement, transforming their market presence into a distinct communication system.",
     before: { label: "Brand Presence", value: "Fragmented Identity" },
@@ -68,7 +69,7 @@ const CASES = [
   {
     id: 5,
     company: "AL ASWAR AL SAMEDA CO.",
-    logo: logo5, // كارت فخم مخصص لقطاع الإنشاءات والمقاولات من ملفاتك الحقيقية
+    logo: logo5,
     description:
       "Structured a high-end corporate identity and comprehensive profiling for a premium 7-branch fast-food chain and large infrastructure projects in Tabuk.",
     before: { label: "Visual System", value: "Standard Outlines" },
@@ -81,30 +82,38 @@ const CASES = [
   },
 ];
 
-export default function CaseStudies() {
+export default function CaseStudies({ translationPrefix }) {
+  const { t } = useTranslation();
+  const translatedCases = translationPrefix
+    ? t(`${translationPrefix}.items`, { returnObjects: true })
+    : [];
+  const cases = CASES.map((caseItem, index) => ({
+    ...caseItem,
+    ...(translationPrefix ? translatedCases[index] : {}),
+    logo: caseItem.logo,
+  }));
+
   return (
     <section id="case-studies" className={styles.section}>
       <div className={styles.container}>
-
-        {/* ── Header ── */}
         <div className={styles.header}>
           <div className={styles.badge}>
             <i>
               <Trophy size={14} />
             </i>
-            <span>Case Studies</span>
+            <span>{translationPrefix ? t(`${translationPrefix}.badge`) : "Case Studies"}</span>
           </div>
-          <h2 className={styles.heading}>Real Results, Real Success</h2>
+          <h2 className={styles.heading}>
+            {translationPrefix ? t(`${translationPrefix}.title`) : "Real Results, Real Success"}
+          </h2>
           <p className={styles.subheading}>
-            Explore how our performance-driven strategies helped brands increase
-            revenue, generate qualified leads, and scale their digital growth.
+            {translationPrefix
+              ? t(`${translationPrefix}.description`)
+              : "Explore how our performance-driven strategies helped brands increase revenue, generate qualified leads, and scale their digital growth."}
           </p>
         </div>
 
-        {/* ── Grid ── */}
         <div className={styles.grid}>
-
-          {/* sticky video */}
           <div className={styles.videoCol}>
             <div className={styles.videoWrap}>
               <video
@@ -119,12 +128,9 @@ export default function CaseStudies() {
             </div>
           </div>
 
-          {/* cards */}
           <div className={styles.cardsCol}>
-            {CASES.map((c) => (
+            {cases.map((c) => (
               <article key={c.id} className={styles.card}>
-
-                {/* left: text */}
                 <div className={styles.cardText}>
                   <div className={styles.companyHeader}>
                     <h3 className={styles.companyName}>{c.company}</h3>
@@ -135,21 +141,22 @@ export default function CaseStudies() {
                     />
                   </div>
 
-                  <span className={styles.pill}>Performance Case Study</span>
+                  <span className={styles.pill}>
+                    {translationPrefix ? t(`${translationPrefix}.pill`) : "Performance Case Study"}
+                  </span>
 
                   <p className={styles.desc}>{c.description}</p>
 
-                  {/* before / after comparison funnel */}
                   <div className={styles.comparison}>
                     <div className={styles.compBefore}>
                       <span className={styles.compLabel}>{c.before.label}</span>
                       <span className={styles.compValue}>{c.before.value}</span>
                     </div>
-                    
+
                     <div className={styles.arrow}>
                       <ArrowRight size={18} />
                     </div>
-                    
+
                     <div className={styles.compAfter}>
                       <span className={styles.compLabel}>{c.after.label}</span>
                       <span className={styles.compValue}>{c.after.value}</span>
@@ -157,7 +164,6 @@ export default function CaseStudies() {
                   </div>
                 </div>
 
-                {/* right: metrics */}
                 <div className={styles.cardMetrics}>
                   {c.metrics.map((m) => (
                     <div key={m.label} className={styles.metric}>
@@ -166,39 +172,36 @@ export default function CaseStudies() {
                     </div>
                   ))}
                 </div>
-
               </article>
             ))}
 
-            {/* ── الزر الموحد في الشاشة مضاف بـ Style داخلي مباشر دون تغيير الـ CSS القديم ── */}
-           <div style={{ marginTop: "2.5rem", display: "flex", justifyContent: "flex-start" }}>
-  <Link 
-    to="/portfolio" 
-    className="btn rounded-pill px-4 py-2 text-uppercase fw-semibold" 
-    style={{ 
-      letterSpacing: "0.08em", 
-      fontSize: "0.85rem",
-      color: "#ffffff",
-      background: "#0081d0", /* مأخوذ من --secondary */
-      border: "1px solid rgba(255, 255, 255, 0.1)",
-      boxShadow: "0 4px 15px rgba(41, 95, 153, 0.2)",
-      transition: "all 0.3s ease"
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.background = "#1a96e6"; /* مأخوذ من --secondaryHover */
-      e.currentTarget.style.transform = "translateY(-2px)";
-      e.currentTarget.style.boxShadow = "0 8px 20px rgba(41, 95, 153, 0.4)";
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.background = "#1a96e6";
-      e.currentTarget.style.transform = "translateY(0)";
-      e.currentTarget.style.boxShadow = "0 4px 15px rgba(41, 95, 153, 0.2)";
-    }}
-  >
-    See All Work
-  </Link>
-</div>
-
+            <div style={{ marginTop: "2.5rem", display: "flex", justifyContent: "flex-start" }}>
+              <Link
+                to="/portfolio"
+                className="btn rounded-pill px-4 py-2 text-uppercase fw-semibold"
+                style={{
+                  letterSpacing: "0.08em",
+                  fontSize: "0.85rem",
+                  color: "#ffffff",
+                  background: "#0081d0",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  boxShadow: "0 4px 15px rgba(41, 95, 153, 0.2)",
+                  transition: "all 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#1a96e6";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow = "0 8px 20px rgba(41, 95, 153, 0.4)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "#1a96e6";
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 4px 15px rgba(41, 95, 153, 0.2)";
+                }}
+              >
+                {translationPrefix ? t(`${translationPrefix}.button`) : "See All Work"}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

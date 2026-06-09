@@ -1,5 +1,6 @@
 import React from "react";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Reveal } from "@/components/sections/Reveal/Reveal";
 import styles from "./ContactSection.module.css";
 
@@ -10,6 +11,8 @@ const contactInfo = {
 };
 
 export function ContactSection({ sent, onSubmit }) {
+  const { t } = useTranslation();
+
   return (
     <section className={styles.contactSection}>
       <div className="container">
@@ -20,13 +23,13 @@ export function ContactSection({ sent, onSubmit }) {
             <Reveal>
               <form onSubmit={onSubmit} className="d-flex flex-column gap-4">
 
-                <Field label="Name" id="name" />
-                <Field label="Email" id="email" type="email" />
-                <Field label="Company" id="company" />
+                <Field label={t("contactPage.form.nameLabel")} id="name" />
+                <Field label={t("contactPage.form.emailLabel")} id="email" type="email" />
+                <Field label={t("contactPage.form.companyLabel")} id="company" />
 
                 <div>
                   <label htmlFor="msg" className={`form-label text-uppercase ${styles.label}`}>
-                    Project details
+                    {t("contactPage.form.messageLabel")}
                   </label>
 
                   <textarea
@@ -42,10 +45,10 @@ export function ContactSection({ sent, onSubmit }) {
                   className={`btn rounded-pill d-inline-flex align-items-center gap-2 text-white border-0 ${styles.btnGold}`}
                 >
                   {sent ? (
-                    "Thanks — we'll be in touch"
+                    t("contactPage.form.success")
                   ) : (
                     <>
-                      Send message <Send size={16} />
+                      {t("contactPage.form.submit")} <Send size={16} />
                     </>
                   )}
                 </button>
@@ -61,7 +64,7 @@ export function ContactSection({ sent, onSubmit }) {
 
                 <div>
                   <p className={`text-uppercase mb-3 ${styles.label}`}>
-                    Direct
+                    {t("contactPage.info.title")}
                   </p>
 
                   <ul className="list-unstyled d-flex flex-column gap-3">
@@ -89,7 +92,7 @@ export function ContactSection({ sent, onSubmit }) {
                     <li className="d-flex align-items-start gap-3 text-light">
                       <MapPin size={16} className={`mt-1 ${styles.iconColor}`} />
                       <span className="opacity-90">
-                        {contactInfo.address}
+                        {t("contactPage.info.addressValue")}
                       </span>
                     </li>
 
@@ -99,7 +102,7 @@ export function ContactSection({ sent, onSubmit }) {
                 {/* Map */}
                 <div className={`overflow-hidden rounded-4 border ${styles.mapWrapper}`}>
                   <iframe
-                    title="Studio location"
+                    title={t("contactPage.info.mapTitle")}
                     src="https://maps.google.com/maps?q=Cairo%2C%20Egypt&t=&z=11&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="320"

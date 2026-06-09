@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
 import { MessageCircle, PhoneCall } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { SITE } from "../lib/site";
 import styles from "./FloatingActions.module.css";
 
 export default function FloatingActions() {
+  const { t } = useTranslation();
   const waLink = `https://wa.me/${SITE.whatsapp}`;
 
   return (
     <div className={styles.wrap}>
       {/* Contact */}
-      <Link to="/contact" className={`${styles.btn} ${styles.contactBtn}`} aria-label="Contact us">
+      <Link to="/contact" className={`${styles.btn} ${styles.contactBtn}`} aria-label={t("floatingActions.contact")}>
         <PhoneCall size={20} />
-        <span className={styles.label}>Contact</span>
+        <span className={styles.label}>{t("floatingActions.contact")}</span>
       </Link>
 
       {/* WhatsApp */}

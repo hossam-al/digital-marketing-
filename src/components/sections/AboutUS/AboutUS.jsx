@@ -1,18 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Fingerprint } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import styles from "./AboutUS.module.css";
 
 import about from "@/assets/About.png";
-import ButtonMain from "../../layout/buttonMain"; // تأكد من صحة مسار استيراد الزرار حسب ترتيب فولدراتك
+import ButtonMain from "../../layout/buttonMain";
 
-const METRICS = [
-  { number: "8+", label: "Years of Experience" },
-  { number: "26.250.000 SAR", label: "SAR in Trackable Sales" },
-  { number: "12×–16×", label: "ROAS Across Industries" },
-];
-
-export function AboutUs() {
+export function AboutUs({ translationPrefix }) {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   const textRef = useRef(null);
   const [revealed, setRevealed] = useState(false);
@@ -61,7 +56,7 @@ export function AboutUs() {
         {/* Section Badge */}
         <div className={styles.badge}>
           <Fingerprint size={23} className={styles.badgeIcon} />
-          <span>WHO WE ARE</span>
+          <span>{translationPrefix ? t(`${translationPrefix}.badge`) : "WHO WE ARE"}</span>
         </div>
 
         {/* Main content: left text + right image */}
@@ -69,20 +64,20 @@ export function AboutUs() {
           {/* Left */}
           <div className={styles.leftCol}>
             <h2 className={styles.heading}>
-              Performance-Driven
+              {translationPrefix ? t(`${translationPrefix}.title`) : "Performance-Driven"}
               <br />
-              <span className={styles.headingAccent}>Marketing Partner</span>
+              <span className={styles.headingAccent}>
+                {translationPrefix ? t(`${translationPrefix}.titleHighlight`) : "Marketing Partner"}
+              </span>
             </h2>
 
             <p
               className={`${styles.body} ${revealed ? styles.revealIn : styles.revealHidden}`}
               ref={textRef}
             >
-              The Ego Studio is a creative graphic design agency specializing in
-              branding & visual identity, social media design, and company
-              profiles. We believe in the power of visual storytelling — we
-              don't just design, we build brands that connect with your audience
-              and achieve your goals.
+              {translationPrefix
+                ? t(`${translationPrefix}.description`)
+                : "The Ego Studio is a creative graphic design agency specializing in branding & visual identity, social media design, and company profiles. We believe in the power of visual storytelling — we don't just design, we build brands that connect with your audience and achieve your goals."}
             </p>
             <ButtonMain />
           </div>
@@ -91,7 +86,11 @@ export function AboutUs() {
           {/* Right image */}
           <div className={styles.rightCol}>
             <div className={styles.imageWrap}>
-              <img src={about} alt="Ego Studio Team" className={styles.image} />
+              <img
+                src={about}
+                alt={translationPrefix ? t(`${translationPrefix}.imageAlt`) : "Ego Studio Team"}
+                className={styles.image}
+              />
               {/* Decorative ring */}
               <div className={styles.imageRing} />
               <div className={styles.glow2} />

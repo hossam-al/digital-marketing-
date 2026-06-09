@@ -409,7 +409,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
-  .metric::grid-column {
+  .metric {
     grid-column: span 1;
   }
   .metric:nth-child(3) {

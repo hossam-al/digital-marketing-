@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { STATS } from "@/lib/content";
 import styles from "./StatsCounter.module.css";
 
@@ -30,19 +31,21 @@ function Counter({ to, suffix }) {
   );
 }
 
-export function StatsCounter() {
+export function StatsCounter({ translationPrefix }) {
+  const { t } = useTranslation();
+
   return (
     <section className={styles.statsSection}>
       {/* استخدام حاويات بوتستراب القياسية للتخطيط السلس */}
       <div className="container">
         <div className="row g-4 justify-content-center">
-          {STATS.map((s) => (
+          {STATS.map((s, i) => (
             <div key={s.label} className="col-6 col-md-3 text-center">
               <div className={styles.counterValue}>
                 <Counter to={s.value} suffix={s.suffix} />
               </div>
               <p className={styles.counterLabel}>
-                {s.label}
+                {translationPrefix ? t(`${translationPrefix}.items.${i}.label`) : s.label}
               </p>
             </div>
           ))}

@@ -1,4 +1,5 @@
 import styles from "./OurClients.module.css";
+import { useTranslation } from "react-i18next";
 
 import { Building2 } from "lucide-react";
 
@@ -48,23 +49,24 @@ function MarqueeRow({ reverse = false }) {
 }
 
 export default function OurClients() {
+  const { t } = useTranslation();
+
   return (
     <section id="our-clients" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.badge}>
             <Building2 size={16} />
-            <span>Our Clients</span>
+            <span>{t("home.clients.badge")}</span>
           </div>
 
           <h2 className={styles.heading}>
-            Brands That{" "}
-            <span className={styles.highlight}>Believe in Our Work</span>
+            {t("home.clients.title")}{" "}
+            <span className={styles.highlight}>{t("home.clients.titleHighlight")}</span>
           </h2>
 
           <p className={styles.subheading}>
-            At EGO STUDIO, we build trusted partnerships across diverse commercial 
-            sectors, transforming collaboration into trackable market expansion.
+            {t("home.clients.description")}
           </p>
         </div>
 

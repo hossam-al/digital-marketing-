@@ -1,6 +1,7 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { FaStar, FaStarHalfAlt, FaRegStar, FaQuoteLeft } from "react-icons/fa";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import styles from "./Testimonials.module.css";
 
 const testimonials = [
@@ -43,15 +44,24 @@ function StarRating({ count }) {
   );
 }
 
-export default function Testimonials() {
+export default function Testimonials({ translationPrefix }) {
+  const { t } = useTranslation();
+  const testimonialItems = useMemo(() => {
+    if (!translationPrefix) return testimonials;
+    const translatedTestimonials = t(`${translationPrefix}.items`, { returnObjects: true });
+    return testimonials.map((item, index) => ({
+      ...item,
+      ...translatedTestimonials[index],
+    }));
+  }, [t, translationPrefix]);
   const visible = useVisible();
-  const maxIndex = testimonials.length - visible;
+  const maxIndex = testimonialItems.length - visible;
   const [index, setIndex] = useState(0);
 
   // reset index when visible count changes to avoid out-of-bounds
   useEffect(() => {
-    setIndex((prev) => Math.min(prev, Math.max(0, testimonials.length - visible)));
-  }, [visible]);
+    setIndex((prev) => Math.min(prev, Math.max(0, testimonialItems.length - visible)));
+  }, [visible, testimonialItems.length]);
 
   const next = useCallback(() => setIndex((p) => (p >= maxIndex ? 0 : p + 1)), [maxIndex]);
   const prev = useCallback(() => setIndex((p) => (p <= 0 ? maxIndex : p - 1)), [maxIndex]);
@@ -71,9 +81,13 @@ export default function Testimonials() {
         <div className={styles.contentTestimonials}>
           <div className={styles.titSec}>
             <FaQuoteLeft className={styles.titIcon} />
-            <h2 className={styles.titLabel}>Testimonials</h2>
+            <h2 className={styles.titLabel}>
+              {translationPrefix ? t(`${translationPrefix}.badge`) : "Testimonials"}
+            </h2>
           </div>
-          <h3 className={styles.heading}>What Our Clients Say</h3>
+          <h3 className={styles.heading}>
+            {translationPrefix ? t(`${translationPrefix}.title`) : "What Our Clients Say"}
+          </h3>
         </div>
 
         {/* Slider */}
@@ -87,7 +101,7 @@ export default function Testimonials() {
               className={styles.track}
               style={{ transform: `translateX(${translateX}%)` }}
             >
-              {testimonials.map((t, i) => (
+              {testimonialItems.map((t, i) => (
                 <div key={i} className={styles.slide} style={{ flex: `0 0 ${100 / visible}%`, maxWidth: `${100 / visible}%` }}>
                   <div className={styles.testimonialCard}>
                     <FaQuoteLeft className={styles.quoteIcon} />

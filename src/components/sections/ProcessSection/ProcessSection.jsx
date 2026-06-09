@@ -1,18 +1,24 @@
 import { PROCESS } from "@/lib/content";
+import { useTranslation } from "react-i18next";
 import { Reveal, SectionHeading } from "../Reveal/Reveal";
 import styles from "./ProcessSection.module.css";
 
-export function ProcessSection() {
+export function ProcessSection({ translationPrefix }) {
+  const { t } = useTranslation();
+  const processItems = translationPrefix
+    ? t(`${translationPrefix}.items`, { returnObjects: true })
+    : PROCESS;
+
   return (
     <section className={`position-relative ${styles.processSection}`}>
       <div className="container">
         <SectionHeading
-          eyebrow="How we work"
+          eyebrow={translationPrefix ? t(`${translationPrefix}.eyebrow`) : "How we work"}
           title={
             <>
-              A process built
+              {translationPrefix ? t(`${translationPrefix}.title`) : "A process built"}
               <br />
-              on momentum.
+              {translationPrefix ? t(`${translationPrefix}.titleSecondLine`) : "on momentum."}
             </>
           }
         />
@@ -22,7 +28,7 @@ export function ProcessSection() {
           <div className={`position-absolute start-0 end-0 d-none d-md-block ${styles.dividerLine}`} />
           
           <div className="row g-4">
-            {PROCESS.map((p, i) => (
+            {processItems.map((p, i) => (
               <div key={p.step} className="col-12 col-md-6 col-lg-3">
                 <Reveal delay={i * 0.1}>
                   <div className="position-relative">

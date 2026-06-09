@@ -3,26 +3,30 @@ import vid1 from "../../../assets/vid1.mp4";
 import vid2 from "../../../assets/vid2.mp4";
 import vid3 from "../../../assets/vid3.mp4";
 import { Flame, ChartLine, BarChart3, Rocket } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-export function ServicesGrid() {
+export function ServicesGrid({ translationPrefix }) {
+  const { t } = useTranslation();
+
   return (
     <section className={styles.howWeWork}>
       <div className={styles.container}>
         <div className={styles.contentHowWeWork}>
           <div className={styles.titleSection}>
             <Flame size={18} />
-            <span>How We Work</span>
+            <span>{translationPrefix ? t(`${translationPrefix}.badge`) : "How We Work"}</span>
           </div>
 
           <h2>
-            Marketing That
+            {translationPrefix ? t(`${translationPrefix}.title`) : "Marketing That"}
             <br />
-            Drives Revenue
+            {translationPrefix ? t(`${translationPrefix}.titleSecondLine`) : "Drives Revenue"}
           </h2>
 
           <p>
-            We turn marketing into measurable growth through data-driven strategies and optimized
-            funnels.
+            {translationPrefix
+              ? t(`${translationPrefix}.description`)
+              : "We turn marketing into measurable growth through data-driven strategies and optimized funnels."}
           </p>
         </div>
         
@@ -36,16 +40,17 @@ export function ServicesGrid() {
               </div>
 
               <h3>
-                Sales-First
+                {translationPrefix ? t(`${translationPrefix}.items.salesFirst.title`) : "Sales-First"}
                 <br />
-                Approach
+                {translationPrefix ? t(`${translationPrefix}.items.salesFirst.titleSecondLine`) : "Approach"}
               </h3>
 
               <div className={styles.line}></div>
 
               <p>
-                We prioritize real revenue and profitability over vanity metrics like impressions or
-                likes.
+                {translationPrefix
+                  ? t(`${translationPrefix}.items.salesFirst.description`)
+                  : "We prioritize real revenue and profitability over vanity metrics like impressions or likes."}
               </p>
             </div>
 
@@ -63,14 +68,18 @@ export function ServicesGrid() {
               </div>
 
               <h3>
-                Data-Driven
+                {translationPrefix ? t(`${translationPrefix}.items.dataDriven.title`) : "Data-Driven"}
                 <br />
-                Decisions
+                {translationPrefix ? t(`${translationPrefix}.items.dataDriven.titleSecondLine`) : "Decisions"}
               </h3>
 
               <div className={styles.line}></div>
 
-              <p>All strategies rely on performance data and conversions.</p>
+              <p>
+                {translationPrefix
+                  ? t(`${translationPrefix}.items.dataDriven.description`)
+                  : "All strategies rely on performance data and conversions."}
+              </p>
             </div>
 
             <div className={styles.videoWrapper}>
@@ -87,13 +96,18 @@ export function ServicesGrid() {
               </div>
 
               <h3>
-                Fast Execution
-                <br />& Optimization
+                {translationPrefix ? t(`${translationPrefix}.items.fastExecution.title`) : "Fast Execution"}
+                <br />
+                {translationPrefix ? t(`${translationPrefix}.items.fastExecution.titleSecondLine`) : "& Optimization"}
               </h3>
 
               <div className={styles.line}></div>
 
-              <p>Campaigns launch fast and are continuously optimized.</p>
+              <p>
+                {translationPrefix
+                  ? t(`${translationPrefix}.items.fastExecution.description`)
+                  : "Campaigns launch fast and are continuously optimized."}
+              </p>
             </div>
 
             <div className={styles.videoWrapper}>

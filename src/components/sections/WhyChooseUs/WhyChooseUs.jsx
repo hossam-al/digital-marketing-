@@ -1,10 +1,11 @@
 import styles from "./WhyChooseUs.module.css";
+import { useTranslation } from "react-i18next";
 
 import {
   Award,
   Settings2,
   Handshake,
-  Sparkles
+  Sparkles,
 } from "lucide-react";
 
 const ITEMS = [
@@ -28,7 +29,16 @@ const ITEMS = [
   },
 ];
 
-export default function WhyChoose() {
+export default function WhyChoose({ translationPrefix }) {
+  const { t } = useTranslation();
+  const translatedItems = translationPrefix
+    ? t(`${translationPrefix}.items`, { returnObjects: true })
+    : [];
+  const items = ITEMS.map((item, index) => ({
+    ...item,
+    ...(translationPrefix ? translatedItems[index] : {}),
+  }));
+
   return (
     <section className={styles.section}>
       <div className={styles.overlay} />
@@ -37,24 +47,24 @@ export default function WhyChoose() {
         <div className={styles.header}>
 
           <div className={styles.badge}>
-            {/* ربط لون الأيقونة مباشرة بالمتغيرات المضيئة لتطابق التصميم */}
             <Sparkles size={22} style={{ color: "var(--primary)" }} />
-            <span>Why Choose Us</span>
+            <span>{translationPrefix ? t(`${translationPrefix}.badge`) : "Why Choose Us"}</span>
           </div>
 
           <h2 className={styles.heading}>
-            Partner With A Measurable Success Team
+            {translationPrefix ? t(`${translationPrefix}.title`) : "Partner With A Measurable Success Team"}
           </h2>
 
           <p className={styles.subheading}>
-            Choosing EGO STUDIO means working with a growth partner that transforms 
-            marketing into a structured system, driving real and trackable commercial development.
+            {translationPrefix
+              ? t(`${translationPrefix}.description`)
+              : "Choosing EGO STUDIO means working with a growth partner that transforms marketing into a structured system, driving real and trackable commercial development."}
           </p>
 
         </div>
 
         <div className={styles.grid}>
-          {ITEMS.map((item) => {
+          {items.map((item) => {
             const Icon = item.icon;
 
             return (
@@ -62,7 +72,6 @@ export default function WhyChoose() {
                 key={item.title}
                 className={styles.card}
               >
-                {/* تم توحيد لون الأيقونة الافتراضي ليعمل ديناميكياً مع الـ CSS الحالي */}
                 <div className={styles.iconWrap} style={{ color: "#fafafa" }}>
                   <Icon size={24} />
                 </div>

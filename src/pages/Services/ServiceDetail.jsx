@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { X, ArrowRight, TrendingUp, BarChart2, Target, Megaphone, PenTool, MousePointerClick, Share2, Map, MessageCircle, FileText, Rocket, Briefcase, Search } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import styles from "./ServiceDetail.module.css";
 
 // ─── Data ──────────────────────────────────────────────────────────────────
@@ -149,9 +150,25 @@ export const ALL_SERVICES = [
 const CATEGORY_LABELS = { strategy: "Strategy", content: "Content", advertising: "Paid & Performance" };
 const CATEGORY_COLORS = { strategy: "var(--color-background-info)", content: "var(--color-background-success)", advertising: "var(--color-background-warning)" };
 const CATEGORY_TEXT   = { strategy: "var(--color-text-info)", content: "var(--color-text-success)", advertising: "var(--color-text-warning)" };
+const SERVICE_KEYS = {
+  "marketing-strategy": "marketingStrategy",
+  "business-development": "businessDevelopment",
+  "market-analysis": "marketAnalysis",
+  "brand-positioning": "brandPositioning",
+  "content-strategy": "contentStrategy",
+  "content-writing": "contentWriting",
+  "meta-ads": "metaAds",
+  "campaign-optimization": "campaignOptimization",
+  "social-media": "socialMedia",
+  "customer-journey": "customerJourney",
+  "whatsapp-sales": "whatsappSales",
+  reporting: "reporting",
+  "launch-systems": "launchSystems",
+  "portfolio-support": "portfolioSupport",
+};
 
 // ─── Modal ──────────────────────────────────────────────────────────────────
-function ServiceModal({ service, onClose }) {
+function ServiceModal({ service, onClose, labels, categoryLabels }) {
   const Icon = service.icon;
 
   // close on Escape
@@ -174,7 +191,7 @@ function ServiceModal({ service, onClose }) {
         aria-modal="true"
       >
         {/* Close */}
-        <button className={styles.closeBtn} onClick={onClose} aria-label="Close">
+        <button className={styles.closeBtn} onClick={onClose} aria-label={labels.close}>
           <X size={18} />
         </button>
 
@@ -186,7 +203,7 @@ function ServiceModal({ service, onClose }) {
               className={styles.badge}
               style={{ background: CATEGORY_COLORS[service.category], color: CATEGORY_TEXT[service.category] }}
             >
-              {CATEGORY_LABELS[service.category]}
+              {categoryLabels[service.category]}
             </span>
           </div>
 
@@ -202,7 +219,7 @@ function ServiceModal({ service, onClose }) {
 
         {/* Features */}
         <div className={styles.modalSection}>
-          <p className={styles.modalLabel}>What's included</p>
+          <p className={styles.modalLabel}>{labels.included}</p>
           <ul className={styles.featureList}>
             {service.features.map((item) => (
               <li key={item} className={styles.featureItem}>
@@ -215,7 +232,7 @@ function ServiceModal({ service, onClose }) {
 
         {/* When */}
         <div className={styles.modalSection}>
-          <p className={styles.modalLabel}>When you need this</p>
+          <p className={styles.modalLabel}>{labels.when}</p>
           <ul className={styles.whenList}>
             {service.when.map((item) => (
               <li key={item} className={styles.whenItem}>
@@ -230,7 +247,7 @@ function ServiceModal({ service, onClose }) {
 }
 
 // ─── Card ────────────────────────────────────────────────────────────────────
-function ServiceCard({ service, onOpen }) {
+function ServiceCard({ service, onOpen, categoryLabels }) {
   const Icon = service.icon;
   return (
     <div className={styles.card} onClick={() => onOpen(service)} role="button" tabIndex={0}
@@ -240,7 +257,7 @@ function ServiceCard({ service, onOpen }) {
           <span className={styles.number}>{service.number}</span>
           <span className={styles.badge}
             style={{ background: CATEGORY_COLORS[service.category], color: CATEGORY_TEXT[service.category] }}>
-            {CATEGORY_LABELS[service.category]}
+            {categoryLabels[service.category]}
           </span>
         </div>
 
@@ -257,12 +274,40 @@ function ServiceCard({ service, onOpen }) {
 
 // ─── Main ────────────────────────────────────────────────────────────────────
 export default function ServicesDetail() {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState(null);
+  const categoryLabels = {
+    strategy: t("servicesPage.categories.strategy"),
+    content: t("servicesPage.categories.content"),
+    advertising: t("servicesPage.categories.advertising"),
+  };
+  const filterLabels = {
+    all: t("servicesPage.filters.all"),
+    strategy: t("servicesPage.filters.strategy"),
+    content: t("servicesPage.filters.content"),
+    advertising: t("servicesPage.filters.advertising"),
+  };
+  const modalLabels = {
+    close: t("servicesPage.modal.close"),
+    included: t("servicesPage.modal.included"),
+    when: t("servicesPage.modal.when"),
+  };
+  const services = ALL_SERVICES.map((service) => {
+    const key = SERVICE_KEYS[service.slug];
+    return {
+      ...service,
+      title: t(`servicesPage.items.${key}.title`),
+      short: t(`servicesPage.items.${key}.short`),
+      long: t(`servicesPage.items.${key}.long`),
+      features: t(`servicesPage.items.${key}.features`, { returnObjects: true }),
+      when: t(`servicesPage.items.${key}.when`, { returnObjects: true }),
+    };
+  });
 
   const filtered = filter === "all"
-    ? ALL_SERVICES
-    : ALL_SERVICES.filter((s) => s.category === filter);
+    ? services
+    : services.filter((s) => s.category === filter);
 
   return (
     <section className={styles.section}>
@@ -276,7 +321,7 @@ export default function ServicesDetail() {
               className={`${styles.filterBtn} ${filter === cat ? styles.filterActive : ""}`}
               onClick={() => setFilter(cat)}
             >
-              {cat === "all" ? "All Services" : cat === "advertising" ? "Paid & Performance" : cat.charAt(0).toUpperCase() + cat.slice(1)}
+              {filterLabels[cat]}
             </button>
           ))}
         </div>
@@ -284,13 +329,25 @@ export default function ServicesDetail() {
         {/* Grid */}
         <div className={styles.grid}>
           {filtered.map((service) => (
-            <ServiceCard key={service.slug} service={service} onOpen={setSelected} />
+            <ServiceCard
+              key={service.slug}
+              service={service}
+              onOpen={setSelected}
+              categoryLabels={categoryLabels}
+            />
           ))}
         </div>
       </div>
 
       {/* Modal */}
-      {selected && <ServiceModal service={selected} onClose={() => setSelected(null)} />}
+      {selected && (
+        <ServiceModal
+          service={selected}
+          labels={modalLabels}
+          categoryLabels={categoryLabels}
+          onClose={() => setSelected(null)}
+        />
+      )}
     </section>
   );
 }

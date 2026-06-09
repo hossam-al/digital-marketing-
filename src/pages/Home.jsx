@@ -15,16 +15,16 @@ const Home = () => {
   return (
     <>
     <HeroScrollLock />
-    <AboutUs/>
-    <StatsCounter />
-    <ServicesGrid />
+    <AboutUs translationPrefix="home.intro" />
+    <StatsCounter translationPrefix="home.stats" />
+    <ServicesGrid translationPrefix="home.values" />
     <ScrollSection /> 
-    <CaseStudies />
-    <WhyChooseUs />
+    <CaseStudies translationPrefix="home.caseStudies" />
+    <WhyChooseUs translationPrefix="home.whyChooseUs" />
     <OurClints /> 
     <OurProcess />
-      <Testimonials />
-      <FAQSection />
+      <Testimonials translationPrefix="home.testimonials" />
+      <FAQSection translationPrefix="home.faq" />
     </>
   );
 };

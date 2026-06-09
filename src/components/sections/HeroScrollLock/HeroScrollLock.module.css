@@ -52,8 +52,7 @@
   width: 22rem;
   border-radius: 50%;
   background-color: rgba(255, 193, 7, 0.15); /* توهج ذهبي */
-  filter: blur(80px);
-  animation: float 6s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(255, 193, 7, 0.14), transparent 68%);
 }
 
 .shapeRight {
@@ -65,8 +64,7 @@
   border-radius: 50%;
   /* خلط لونك الأزرق الجديد بنسبة 15% ليصنع هالة ضوئية خلفية احترافية */
   background-color: rgba(41, 95, 153, 0.15) !important; 
-  filter: blur(140px);
-  animation: pulseGlow 4s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(41, 95, 153, 0.15), transparent 70%);
 }
 
 @keyframes float {
@@ -118,7 +116,7 @@
 
 .slideInner {
   max-width: 48rem;
-  transition: all 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 /* --- نقل المحتوى لليمين في السلايد الثاني --- */

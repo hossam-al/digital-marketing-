@@ -1,10 +1,13 @@
 import { FiMail, FiGlobe } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 import logo from "../../assets/logoFooter.png";
 import styles from "./Footer.module.css";
 
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.glow} />
@@ -21,12 +24,12 @@ function Footer() {
             </div>
 
             <p className={styles.headline}>
-              We build digital experiences people remember & <br /> 
-              <span> and brands grow from.</span>
+              {t("footer.description")} <br />
+              <span>{t("footer.descriptionHighlight")}</span>
             </p>
 
             <a href="/contact" className={styles.btnStart}>
-              Start Your Project →
+              {t("footer.startProject")} →
             </a>
           </div>
 
@@ -35,26 +38,26 @@ function Footer() {
             <div className="row g-4">
               {/* STUDIO */}
               <div className="col-md-4">
-                <p className={styles.colLabel}>Studio</p>
+                <p className={styles.colLabel}>{t("footer.quickLinks")}</p>
                 <ul className={styles.links}>
                   <li>
-                    <a href="/about">About</a>
+                    <a href="/about">{t("footer.links.about")}</a>
                   </li>
                   <li>
-                    <a href="/services">Services</a>
+                    <a href="/services">{t("footer.links.services")}</a>
                   </li>
                   <li>
-                    <a href="/portfolio">Portfolio</a>
+                    <a href="/portfolio">{t("footer.links.portfolio")}</a>
                   </li>
                   <li>
-                    <a href="/blog">Blog</a>
+                    <a href="/blog">{t("footer.links.blog")}</a>
                   </li>
                 </ul>
               </div>
 
               {/* CONTACT */}
               <div className="col-md-4">
-                <p className={styles.colLabel}>Contact</p>
+                <p className={styles.colLabel}>{t("footer.contact")}</p>
                 <ul className={styles.links}>
                   <li>
                     <a href="mailto:info@theegostudio.com">
@@ -74,7 +77,7 @@ function Footer() {
                       <div className={styles.iconBox}>
                         <FaWhatsapp size={16} />
                       </div>
-                      WhatsApp Chat
+                      {t("footer.whatsappChat")}
                     </a>
                   </li>
 
@@ -95,7 +98,7 @@ function Footer() {
 
               {/* SOCIAL */}
               <div className="col-md-4">
-                <p className={styles.colLabel}>Follow</p>
+                <p className={styles.colLabel}>{t("footer.follow")}</p>
                 <ul className={styles.links}>
                   <li>
                     <a
@@ -148,10 +151,10 @@ function Footer() {
         <div className={`${styles.bottom} row`}>
           <div className="col d-flex justify-content-between flex-wrap gap-3">
             <span className={styles.bottomText}>
-              © 2026 THE EGO STUDIO. All rights reserved.
+              {t("footer.copyright")}
             </span>
             <span className={styles.bottomText}>
-              Crafted with care · Strategic Growth Systems
+              {t("footer.crafted")}
             </span>
           </div>
         </div>
