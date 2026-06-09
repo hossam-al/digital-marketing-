@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, ArrowRight, TrendingUp, BarChart2, Target, Megaphone, PenTool, MousePointerClick, Share2, Map, MessageCircle, FileText, Rocket, Briefcase, Search } from "lucide-react";
+import { X, TrendingUp, Briefcase, Search, Target, PenTool, Megaphone, BarChart2, MousePointerClick, Share2, Map, MessageCircle, FileText, Rocket } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import styles from "./ServiceDetail.module.css";
 
@@ -147,9 +147,10 @@ export const ALL_SERVICES = [
   },
 ];
 
-const CATEGORY_LABELS = { strategy: "Strategy", content: "Content", advertising: "Paid & Performance" };
-const CATEGORY_COLORS = { strategy: "var(--color-background-info)", content: "var(--color-background-success)", advertising: "var(--color-background-warning)" };
-const CATEGORY_TEXT   = { strategy: "var(--color-text-info)", content: "var(--color-text-success)", advertising: "var(--color-text-warning)" };
+// تم تعديل مصفوفة الألوان هنا لمنع ظهور اللون الأخضر نهائياً ليتوافق مع الهوية البصرية
+const CATEGORY_COLORS = { strategy: "rgba(0, 129, 208, 0.08)", content: "rgba(245, 158, 11, 0.05)", advertising: "rgba(245, 158, 11, 0.08)" };
+const CATEGORY_TEXT   = { strategy: "#0081d0", content: "#f59e0b", advertising: "#f59e0b" };
+
 const SERVICE_KEYS = {
   "marketing-strategy": "marketingStrategy",
   "business-development": "businessDevelopment",
@@ -171,7 +172,6 @@ const SERVICE_KEYS = {
 function ServiceModal({ service, onClose, labels, categoryLabels }) {
   const Icon = service.icon;
 
-  // close on Escape
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onKey);
@@ -236,6 +236,7 @@ function ServiceModal({ service, onClose, labels, categoryLabels }) {
           <ul className={styles.whenList}>
             {service.when.map((item) => (
               <li key={item} className={styles.whenItem}>
+                <span className={styles.featureDot} />
                 {item}
               </li>
             ))}
@@ -272,27 +273,31 @@ function ServiceCard({ service, onOpen, categoryLabels }) {
   );
 }
 
-// ─── Main ────────────────────────────────────────────────────────────────────
+// ─── Main Component ──────────────────────────────────────────────────────────
 export default function ServicesDetail() {
   const { t } = useTranslation();
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState(null);
+
   const categoryLabels = {
     strategy: t("servicesPage.categories.strategy"),
     content: t("servicesPage.categories.content"),
     advertising: t("servicesPage.categories.advertising"),
   };
+
   const filterLabels = {
     all: t("servicesPage.filters.all"),
     strategy: t("servicesPage.filters.strategy"),
     content: t("servicesPage.filters.content"),
     advertising: t("servicesPage.filters.advertising"),
   };
+
   const modalLabels = {
     close: t("servicesPage.modal.close"),
     included: t("servicesPage.modal.included"),
     when: t("servicesPage.modal.when"),
   };
+
   const services = ALL_SERVICES.map((service) => {
     const key = SERVICE_KEYS[service.slug];
     return {
@@ -300,8 +305,8 @@ export default function ServicesDetail() {
       title: t(`servicesPage.items.${key}.title`),
       short: t(`servicesPage.items.${key}.short`),
       long: t(`servicesPage.items.${key}.long`),
-      features: t(`servicesPage.items.${key}.features`, { returnObjects: true }),
-      when: t(`servicesPage.items.${key}.when`, { returnObjects: true }),
+      features: t(`servicesPage.items.${key}.features`, { returnObjects: true }) || [],
+      when: t(`servicesPage.items.${key}.when`, { returnObjects: true }) || [],
     };
   });
 
@@ -339,7 +344,7 @@ export default function ServicesDetail() {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Modal Container */}
       {selected && (
         <ServiceModal
           service={selected}

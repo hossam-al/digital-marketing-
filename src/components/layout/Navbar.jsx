@@ -42,7 +42,6 @@ function Navbar() {
       <div className={styles.container}>
         <Link to="/" className={styles.brand} onClick={closeMenu}>
           <img src={logo} alt={SITE.name} className={styles.logo} />
-          <span className={styles.brandName}>{SITE.logo}</span>
         </Link>
 
         {/* روابط الديسكتوب مع التحقق الذكي من المسار الحالي للرابط النشط */}

@@ -27,31 +27,33 @@ function ServicesPage() {
       {/* Hero Section */}
       <section className={`position-relative overflow-hidden ${styles.heroSection}`}>
         <div className="container">
-          <div className="row align-items-center gy-5">
-            <div className="col-lg-6">
+          <div className="row align-items-center g-5">
+            <div className="col-12 col-lg-6 d-flex align-items-center">
               <Reveal>
                 <p className={`mb-3 text-uppercase ${styles.eyebrow}`}>
                   {t("servicesPage.hero.badge")}
                 </p>
-                <h1 className={`display-1 fw-normal ${styles.fontDisplay}`}>
+                <h1 className={`display-1 fw-normal mb-0 ${styles.fontDisplay}`}>
                   {t("servicesPage.hero.title")}
                   <br />
                   {t("servicesPage.hero.titleSecondLine")}
                 </h1>
-                <p className="mt-4 text-muted fs-5 max-w-600">
+                <p className={`mt-4 text-muted fs-5 mb-0 ${styles.description}`}>
                   {t("servicesPage.hero.description")}
                 </p>
               </Reveal>
             </div>
 
-            <div className="col-lg-6 d-flex align-items-center justify-content-center">
-              <div className={styles.cardimgs}>
-                <img
-                  src={TeamCraftImg}
-                  alt={t("servicesPage.hero.imageAlt")}
-                  className={styles.aboutImg}
-                />
-              </div>
+            <div className="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end">
+              <Reveal>
+                <div className={styles.imageWrapper}>
+                  <img
+                    src={TeamCraftImg}
+                    alt={t("servicesPage.hero.imageAlt")}
+                    className={styles.aboutImg}
+                  />
+                </div>
+              </Reveal>
             </div>
           </div>
         </div>
