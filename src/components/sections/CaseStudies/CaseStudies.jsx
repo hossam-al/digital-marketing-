@@ -1,8 +1,8 @@
 import { Trophy, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import OptimizedVideo from "../../OptimizedVideo";
 import styles from "./CaseStudies.module.css";
-import video from "@/assets/V1.mp4";
 import logo1 from "@/assets/loooo1.webp";
 import logo2 from "@/assets/loooo2.webp";
 import logo3 from "@/assets/loooo3.webp";
@@ -116,13 +116,12 @@ export default function CaseStudies({ translationPrefix }) {
         <div className={styles.grid}>
           <div className={styles.videoCol}>
             <div className={styles.videoWrap}>
-              <video
-                src={video}
-                autoPlay
-                muted
-                loop
-                playsInline
+              <OptimizedVideo
+                webmSrc="/videos/v1.webm"
+                mp4Src="/videos/v1.mp4"
+                poster="/videos/v1-poster.webp"
                 className={styles.video}
+                ariaLabel="Case studies motion preview"
               />
               <div className={styles.videoGlow} />
             </div>

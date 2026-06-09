@@ -2,8 +2,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./OurProcess.module.css";
 
-const TOTAL_FRAMES = 297; // match actual files in /public/frames
-const FRAME_BASE = "/frames/ezgif-frame-";
+const TOTAL_FRAMES = 297; // match actual files in /public/frames-webp
+const FRAME_BASE = "/frames-webp/ezgif-frame-";
 const PX_PER_FRAME = 6; // pixels of scroll that advance one frame
 const DESKTOP_FRAME_STRIDE = 3;
 const MOBILE_FRAME_STRIDE = 5;
@@ -53,7 +53,7 @@ function pad(n) {
 }
 
 function getFrameUrl(frame) {
-  return `${FRAME_BASE}${pad(frame)}.png`;
+  return `${FRAME_BASE}${pad(frame)}.webp`;
 }
 
 function getAlignedFrame(frame, stride) {

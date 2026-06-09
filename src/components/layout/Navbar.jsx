@@ -29,9 +29,7 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [location.pathname]);
+  const closeMenu = () => setOpen(false);
 
   // تعديل بناء الكلاس البرمجي للهيدر لضمان السلاسة مع الأنيميشن المفتوح
   const headerClass = [
@@ -42,8 +40,8 @@ function Navbar() {
   return (
     <header className={headerClass}>
       <div className={styles.container}>
-        <Link to="/" className={styles.brand}>
-          <img src={logo} alt="logo" className={styles.logo} />
+        <Link to="/" className={styles.brand} onClick={closeMenu}>
+          <img src={logo} alt={SITE.name} className={styles.logo} />
           <span className={styles.brandName}>{SITE.logo}</span>
         </Link>
 
@@ -52,11 +50,12 @@ function Navbar() {
           {NAV.map((n) => {
             const isActive = location.pathname === n.to;
             return (
-              <Link 
-                key={n.to} 
-                to={n.to} 
-                className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
-              >
+                  <Link 
+                    key={n.to} 
+                    to={n.to} 
+                    onClick={closeMenu}
+                    className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
+                  >
                 {t(n.labelKey)}
               </Link>
             );
@@ -66,7 +65,7 @@ function Navbar() {
         <div className={styles.actions}>
           <LanguageSwitcher className={styles.langBtn} />
 
-          <Link to="/contact" className={styles.ctaBtn}>
+          <Link to="/contact" className={styles.ctaBtn} onClick={closeMenu}>
             {t("buttons.bookConsultation")}
           </Link>
 
@@ -97,6 +96,7 @@ function Navbar() {
                   <Link
                     key={n.to}
                     to={n.to}
+                    onClick={closeMenu}
                     className={`${styles.mobileLink} ${isActive ? styles.mobileLinkActive : ""}`}
                   >
                     {t(n.labelKey)}
@@ -104,7 +104,7 @@ function Navbar() {
                 );
               })}
 
-              <Link to="/contact" className={styles.mobileCtaBtn}>
+              <Link to="/contact" className={styles.mobileCtaBtn} onClick={closeMenu}>
                 {t("buttons.bookConsultation")}
               </Link>
             </div>

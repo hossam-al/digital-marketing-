@@ -1,7 +1,5 @@
 import styles from "./ServicesGrid.module.css";
-import vid1 from "../../../assets/vid1.mp4";
-import vid2 from "../../../assets/vid2.mp4";
-import vid3 from "../../../assets/vid3.mp4";
+import OptimizedVideo from "../../OptimizedVideo";
 import { Flame, ChartLine, BarChart3, Rocket } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -55,7 +53,13 @@ export function ServicesGrid({ translationPrefix }) {
             </div>
 
             <div className={styles.videoWrapper}>
-              <video src={vid1} autoPlay muted loop playsInline className={styles.cardVideo} />
+              <OptimizedVideo
+                webmSrc="/videos/vid1.webm"
+                mp4Src="/videos/vid1.mp4"
+                poster="/videos/vid1-poster.webp"
+                className={styles.cardVideo}
+                ariaLabel="Sales-first marketing animation"
+              />
               <div className={styles.videoOverlay}></div>
             </div>
           </div>
@@ -83,7 +87,13 @@ export function ServicesGrid({ translationPrefix }) {
             </div>
 
             <div className={styles.videoWrapper}>
-              <video src={vid2} autoPlay muted loop playsInline className={`${styles.cardVideo} ${styles.globeVideo}`} />
+              <OptimizedVideo
+                webmSrc="/videos/vid2.webm"
+                mp4Src="/videos/vid2.mp4"
+                poster="/videos/vid2-poster.webp"
+                className={`${styles.cardVideo} ${styles.globeVideo}`}
+                ariaLabel="Data-driven decisions animation"
+              />
               <div className={styles.videoOverlay}></div>
             </div>
           </div>
@@ -111,7 +121,13 @@ export function ServicesGrid({ translationPrefix }) {
             </div>
 
             <div className={styles.videoWrapper}>
-              <video src={vid3} autoPlay muted loop playsInline className={styles.cardVideo} />
+              <OptimizedVideo
+                webmSrc="/videos/vid3.webm"
+                mp4Src="/videos/vid3.mp4"
+                poster="/videos/vid3-poster.webp"
+                className={styles.cardVideo}
+                ariaLabel="Fast execution animation"
+              />
               <div className={styles.videoOverlay}></div>
             </div>
           </div>
