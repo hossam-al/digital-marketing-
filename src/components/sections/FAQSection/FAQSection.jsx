@@ -108,12 +108,10 @@ export default function FAQSection({ translationPrefix }) {
 
           {/* Left: Info */}
           <div className={styles.info}>
-            <div className={styles.badge}>
-              <div className={styles.badgeIcon}>
-                <QuestionMarkIcon />
-              </div>
+            <div className={styles.titleSection}>
+                <QuestionMarkIcon className={styles.badgeIcon} />
               <span className={styles.badgeText}>
-                {translationPrefix ? t(`${translationPrefix}.badge`) : "FAQ"}
+                {translationPrefix ? t(`${translationPrefix}.badge`) : "Frequent Questions"}
               </span>
             </div>
 

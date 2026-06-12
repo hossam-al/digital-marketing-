@@ -46,8 +46,8 @@ export default function WhyChoose({ translationPrefix }) {
       <div className={styles.container}>
         <div className={styles.header}>
 
-          <div className={styles.badge}>
-            <Sparkles size={22} style={{ color: "var(--primary)" }} />
+          <div className={styles.titleSection}>
+            <Sparkles size={23} style={{ color: "var(--primary)" }} />
             <span>{translationPrefix ? t(`${translationPrefix}.badge`) : "Why Choose Us"}</span>
           </div>
 

@@ -55,8 +55,8 @@ export default function OurClients() {
     <section id="our-clients" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <div className={styles.badge}>
-            <Building2 size={16} />
+          <div className={styles.titleSection}>
+            <Building2 size={23} />
             <span>{t("home.clients.badge")}</span>
           </div>
 

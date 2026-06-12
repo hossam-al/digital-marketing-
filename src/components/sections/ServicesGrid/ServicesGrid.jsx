@@ -11,7 +11,7 @@ export function ServicesGrid({ translationPrefix }) {
       <div className={styles.container}>
         <div className={styles.contentHowWeWork}>
           <div className={styles.titleSection}>
-            <Flame size={18} />
+            <Flame size={23} />
             <span>{translationPrefix ? t(`${translationPrefix}.badge`) : "How We Work"}</span>
           </div>
 

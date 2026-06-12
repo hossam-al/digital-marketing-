@@ -9,8 +9,6 @@
   padding: 120px 0;
   background: var(--background);
   overflow: hidden;
-
-  
 }
 
 /* Ambient base glow */
@@ -63,28 +61,40 @@
 .contentHowWeWork {
   max-width: 680px;
   margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: start;
+  align-items: start;
 }
 
 .titleSection {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 24px;
-  border: 1px solid rgba(255, 193, 7, 0.2);
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  width: fit-content;
+  gap: 0.7rem;
+  padding: 1rem 3rem;
   border-radius: 999px;
-  background: rgba(255, 193, 7, 0.03);
-  color: var(--primary);
-  font-size: 13px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+
+  background: transparent;
+  border: 2px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  color: var(--primary) !important;
+
+  font-size: 1rem;
   font-weight: 500;
-  margin-bottom: 32px;
-  font-weight: 600;
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.02em;
+  margin: 15px 1rem;
+  backdrop-filter: blur(10px);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+
+    box-shadow 0.3s ease;
 }
 
 .titleSection:hover {
-  background-color: rgba(255, 193, 7, 0.08) !important;
+   background-color: rgba(255, 193, 7, 0.08) !important;
   border-color: var(--primary) !important;
   box-shadow: var(--shadow-glow);
 }
@@ -125,7 +135,7 @@
   flex-direction: column;
   border-radius: 28px;
   overflow: hidden;
-  background: var(--surface);
+  background: #000000 !important; /* تعديل: تم تحويل خلفية الكارد لأسود صريح */
   border: 1px solid var(--border);
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -135,26 +145,23 @@
   position: absolute;
   inset: 0;
   border-radius: 28px;
-  background: radial-gradient(circle at 50% 0%, rgba(41, 95, 153, 0.15) 0%, transparent 70%);
+  background: #000000; /* تعديل: تم تحويل خلفية الـ pseudo-element لأسود أيضاً */
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 
 .featureCard:hover {
-  /* تلوين حواف الكارت بالأزرق المطور لتثبيت عملية الإنارة */
   border-color: #295f99 !important;
   transform: translateY(-12px);
   box-shadow: 0 30px 60px -12px rgba(41, 95, 153, 0.25);
 }
 
+/* تم إبقاؤها 0 لتجنب حجب أو بهتان الفيديو */
 .featureCard:hover::after {
-  opacity: 1;
+  opacity: 0; 
 }
 
-/* ════════════════════════════════════════
-   CARD TOP (إصلاح تداخل الأيقونات بالكامل)
-════════════════════════════════════════ */
 .cardTop {
   display: flex;
   flex-direction: column;
@@ -171,19 +178,16 @@
   border-radius: 16px;
   display: grid;
   place-items: center;
-  /* تطبيق ميكس التدرج الأزرق الفروي المتوازن والمطابق للصورة */
   background: var(--secondary)!important;
   border: 1px solid rgba(41, 95, 153, 0.4);
-  color: #ffffff !important; /* لون الأيقونة أبيض ناصع ومتباين فوق الأزرق الغامق */
+  color: #ffffff !important; 
   margin-bottom: 24px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 8px 20px rgba(23, 75, 145, 0.3);
 }
 
-/* حالة الـ Hover الفخمة والمضيئة للأيقونة عند تمرير الماوس على الكارد */
 .featureCard:hover .iconBox {
   transform: translateY(-6px) rotate(-5deg) scale(1.08);
-  /* التحول للميكس المضيء فائق التشبع لإبراز الحركة سينمائياً */
   background: var(--secondaryHover) !important;
   border-color: #428bf2 !important;
   box-shadow: 0 15px 30px rgba(43, 110, 194, 0.55);
@@ -201,7 +205,6 @@
 .line {
   width: 40px;
   height: 2px;
-  /* تدرج الخط ليربط بين الذهبي والأزرق المطور */
   background: linear-gradient(90deg, var(--primary), #295f99);
   margin-bottom: 20px;
 }
@@ -222,7 +225,7 @@
   width: 100%;
   height: 250px; 
   overflow: hidden;
-  background: var(--surface);
+  background: #000000; /* أسود صريح خلف الفيديو */
   border-top: 1px solid var(--border);
 }
 
@@ -231,14 +234,14 @@
   height: 100% !important;
   object-fit: cover;
   display: block;
-  opacity: 0.4; 
+  opacity: 0.6; 
   transform: scale(1);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
               transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .featureCard:hover .cardVideo {
-  opacity: 0.85;
+  opacity: 1; 
   transform: scale(1.06); 
 }
 
@@ -252,7 +255,7 @@
 .videoOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--surface) 0%, transparent 50%, rgba(26, 29, 32, 0.8) 100%);
+  background: linear-gradient(to top, #000000 0%, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -279,3 +282,4 @@
     font-size: 36px;
   }
 }
+

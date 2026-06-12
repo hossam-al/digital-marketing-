@@ -79,11 +79,10 @@ export default function Testimonials({ translationPrefix }) {
 
         {/* Header */}
         <div className={styles.contentTestimonials}>
-          <div className={styles.titSec}>
-            <FaQuoteLeft className={styles.titIcon} />
-            <h2 className={styles.titLabel}>
-              {translationPrefix ? t(`${translationPrefix}.badge`) : "Testimonials"}
-            </h2>
+          <div className={styles.titleSection}>
+            <FaQuoteLeft className={styles.titIcon}  size={18}/>
+            <span>{translationPrefix ? t(`${translationPrefix}.badge`) : " Testimonials"}</span>
+            
           </div>
           <h3 className={styles.heading}>
             {translationPrefix ? t(`${translationPrefix}.title`) : "What Our Clients Say"}

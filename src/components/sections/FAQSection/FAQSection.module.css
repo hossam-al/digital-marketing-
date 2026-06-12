@@ -47,46 +47,61 @@
   padding-top: 4px;
 }
 
-/* Badge */
-.badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 19px;
-    border-radius: 999px;
-    border-top: 1px solid var(--primary);
-    background: oklch(1 0 0 / 0.06);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 -3px 10px oklch(0.78 0.14 70 / 0.2), 0 4px 14px oklch(0 0 0 / 0.4);
-    margin-bottom: 28px;
-}
 
-.badgeIcon {
-  width: 30px;
-  height: 28px;
-  background: var(--secondary) !important;
-  border-radius: 50%;
-  display: flex;
+.titleSection span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary) !important;
+  letter-spacing: 0.02em;
+}
+.titleSection {
+ display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 0 12px rgba(41, 95, 153, 0.5); 
-  color: #fafafa !important;
+  width: fit-content;
+  gap: 0.7rem;
+  padding: 1rem 3rem;
+  border-radius: 999px;
 
-}
+  background: transparent;
+  border: 2px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  color: var(--primary) !important;
 
-.badgeIcon i,
-.badgeIcon svg {
-  color: #fafafa !important;
-}
-
-.badgeText {
-  font-size: 13px;
+  font-size: 1rem;
   font-weight: 500;
-  color: var(--foreground);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
+  margin: 15px  1rem;
+  backdrop-filter: blur(10px);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+
+    box-shadow 0.3s ease;
 }
 
+.titleSection:hover {
+   background-color: rgba(255, 193, 7, 0.08) !important;
+  border-color: var(--primary) !important;
+  box-shadow: var(--shadow-glow);
+}
+
+
+
+.titleSection svg  {
+   width: 19px;
+   height: 19px;
+   color: var(--primary);
+  font-size: 1.3rem;
+}
+
+/* نص الـ Badge الذهبي/البرتقالي الدافئ المقروء */
+.badgeText {
+  font-size: 1rem;            /* مقاس خط متناسق جداً مع حجم الدائرة الجديد */
+  font-weight: 600;
+  color: #ffa648 !important;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
 /* Title */
 .title {
   font-size: clamp(38px, 4vw, 54px);
@@ -150,9 +165,9 @@
     90deg,
     transparent 0%,
     transparent 30%,
-    rgba(41, 95, 153, 0.15) 50%, /* إدخال بريق الأزرق المطور */
+    rgba(41, 95, 153, 0.15) 50%,
     transparent 70%,
-    transparent 100
+    transparent 100%
   );
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -176,7 +191,6 @@
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-
 
 .faqItem:hover {
   transform: translateY(-4px);

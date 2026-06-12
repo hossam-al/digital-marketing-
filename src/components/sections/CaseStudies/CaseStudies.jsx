@@ -1,7 +1,7 @@
 import { Trophy, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import OptimizedVideo from "../../OptimizedVideo";
+import OptimizedVideo from "../../../assets/caseS.png";
 import styles from "./CaseStudies.module.css";
 import logo1 from "@/assets/loooo1.webp";
 import logo2 from "@/assets/loooo2.webp";
@@ -97,14 +97,16 @@ export default function CaseStudies({ translationPrefix }) {
     <section id="case-studies" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <div className={styles.badge}>
+          <div className={styles.titleSection}>
             <i>
-              <Trophy size={14} />
+              <Trophy size={23} />
             </i>
             <span>{translationPrefix ? t(`${translationPrefix}.badge`) : "Case Studies"}</span>
           </div>
           <h2 className={styles.heading}>
-            {translationPrefix ? t(`${translationPrefix}.title`) : "Real Results, Real Success"}
+            {translationPrefix
+              ? t(`${translationPrefix}.title`)
+              : "Real Results, Real Success"}
           </h2>
           <p className={styles.subheading}>
             {translationPrefix
@@ -116,13 +118,8 @@ export default function CaseStudies({ translationPrefix }) {
         <div className={styles.grid}>
           <div className={styles.videoCol}>
             <div className={styles.videoWrap}>
-              <OptimizedVideo
-                webmSrc="/videos/v1.webm"
-                mp4Src="/videos/v1.mp4"
-                poster="/videos/v1-poster.webp"
-                className={styles.video}
-                ariaLabel="Case studies motion preview"
-              />
+              {/* تم إصلاح الخطأ وإضافة قوس الفتح هنا < */}
+              <img src={OptimizedVideo} alt="Case studies overview" className={styles.video} />
               <div className={styles.videoGlow} />
             </div>
           </div>
@@ -141,7 +138,9 @@ export default function CaseStudies({ translationPrefix }) {
                   </div>
 
                   <span className={styles.pill}>
-                    {translationPrefix ? t(`${translationPrefix}.pill`) : "Performance Case Study"}
+                    {translationPrefix
+                      ? t(`${translationPrefix}.pill`)
+                      : "Performance Case Study"}
                   </span>
 
                   <p className={styles.desc}>{c.description}</p>
@@ -174,7 +173,13 @@ export default function CaseStudies({ translationPrefix }) {
               </article>
             ))}
 
-            <div style={{ marginTop: "2.5rem", display: "flex", justifyContent: "flex-start" }}>
+            <div
+              style={{
+                marginTop: "2.5rem",
+                display: "flex",
+                justifyContent: "flex-start",
+              }}
+            >
               <Link
                 to="/portfolio"
                 className="btn rounded-pill px-4 py-2 text-uppercase fw-semibold"
@@ -190,15 +195,19 @@ export default function CaseStudies({ translationPrefix }) {
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = "#1a96e6";
                   e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow = "0 8px 20px rgba(41, 95, 153, 0.4)";
+                  e.currentTarget.style.boxShadow =
+                    "0 8px 20px rgba(41, 95, 153, 0.4)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#1a96e6";
+                  e.currentTarget.style.background = "#0081d0"; /* تم تعديل اللون ليرجع للأساسي عند خروج الماوس */
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 15px rgba(41, 95, 153, 0.2)";
+                  e.currentTarget.style.boxShadow =
+                    "0 4px 15px rgba(41, 95, 153, 0.2)";
                 }}
               >
-                {translationPrefix ? t(`${translationPrefix}.button`) : "See All Work"}
+                {translationPrefix
+                  ? t(`${translationPrefix}.button`)
+                  : "See All Work"}
               </Link>
             </div>
           </div>
