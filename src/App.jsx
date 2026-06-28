@@ -6,13 +6,13 @@ import Footer from "./components/layout/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Loader from "./components/Loader";
 import FloatingActions from "./components/FloatingActions";
-
 import Home from "./pages/Home";
 import About from "./pages/AboutPage/About";
 import Services from "./pages/Services/Services";
 import Portfolio from "./pages/PortfolioPage/Portfolio";
 // import Blog from "./pages/Blog/Blog";
 import Contact from "./pages/ContactUS/Contact";
+import FAQPage from "./pages/FAQ/FAQ";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -44,7 +44,9 @@ function App() {
             <Route path="/portfolio" element={<Portfolio />} />
             {/* <Route path="/blog" element={<Blog />} /> */}
             <Route path="/contact"   element={<Contact />} />
+            <Route path="/FAQ"       element={<FAQPage />} />
             <Route path="*"          element={<NotFound />} />
+
           </Routes>
 
           <Footer />

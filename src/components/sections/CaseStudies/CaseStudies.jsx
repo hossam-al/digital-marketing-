@@ -1,7 +1,7 @@
 import { Trophy, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import OptimizedVideo from "../../../assets/caseS.png";
+import OptimizedVideo from "../../../assets/caseS.webp";
 import styles from "./CaseStudies.module.css";
 import logo1 from "@/assets/loooo1.webp";
 import logo2 from "@/assets/loooo2.webp";

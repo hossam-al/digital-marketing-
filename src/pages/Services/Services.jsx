@@ -7,7 +7,6 @@ import ServicesDetail from "./ServiceDetail";
 import WhyChooseUs from "../../components/sections/WhyChooseUs/WhyChooseUs";
 import { StatsCounter } from "../../components/sections/StatsCounter/StatsCounter";
 import Testimonials from "../../components/sections/Testimonials/Testimonials";
-import FAQSection from "../../components/sections/FAQSection/FAQSection";
 import styles from "./Services.module.css";
 import TeamCraftImg from "../../assets/What-we-do Icon.png";
 
@@ -75,7 +74,6 @@ function ServicesPage() {
       <Testimonials translationPrefix="servicesPage.testimonials" />
 
       {/* FAQ */}
-      <FAQSection translationPrefix="servicesPage.faq" />
 
       {/* Call To Action */}
       <CTABanner translationPrefix="servicesPage.cta" />

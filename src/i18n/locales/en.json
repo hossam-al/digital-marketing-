@@ -819,7 +819,8 @@
       "services": "Services",
       "portfolio": "Portfolio",
       "contact": "Contact",
-      "blog": "Blog"
+      "blog": "Blog",
+      "FAQ": "FAQ"
     }
   }
 }

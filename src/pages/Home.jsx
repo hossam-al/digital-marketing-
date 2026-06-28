@@ -9,7 +9,6 @@ import  WhyChooseUs  from '../components/sections/WhyChooseUs/WhyChooseUs';
 import OurClints from '../components/sections/OurClients/OurClients';
 import OurProcess from '../components/sections/OurProcess/OurProcess';
 import Testimonials from '../components/sections/Testimonials/Testimonials';
-import FAQSection from '../components/sections/FAQSection/FAQSection';
 
 const Home = () => {
   return (
@@ -24,7 +23,6 @@ const Home = () => {
     <OurClints /> 
     <OurProcess />
       <Testimonials translationPrefix="home.testimonials" />
-      <FAQSection translationPrefix="home.faq" />
     </>
   );
 };

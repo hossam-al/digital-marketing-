@@ -3,7 +3,7 @@
 /* ─── Section ───────────────────────────────────────────────── */
 .section {
   width: 100%;
-  padding: 90px 0;
+  padding: 120px 0;
   background: var(--gradient-hero);
   min-height: 100vh;
   box-sizing: border-box;
